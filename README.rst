@@ -13,7 +13,7 @@ Solcast API
 
 Build Sttaus
 ------------
-![](https://github.com/mcaulifn/solcast/workflows/main/badge.svg)
+![Build Status](https://github.com/mcaulifn/solcast/workflows/main/badge.svg)
 
 Features
 --------
