@@ -1,12 +1,17 @@
+"""Tests for base module."""
+
+import json
 import responses
 from requests.exceptions import ConnectTimeout
-from solcast.base import Solcast
 import pytest
+from solcast.base import Solcast
+
 
 BASE_URL = 'https://api.solcast.com.au'
 
 
 def test_Solcast_init():
+    """Test creating Solcast object."""
     # Arrange
     api_key = '12345'
     resource_id = '1234-1234'
@@ -21,8 +26,9 @@ def test_Solcast_init():
 
 @responses.activate
 def test_get_data_200():
+    """Test get_data."""
     # Arrange
-    import json
+
     api_key = '12345'
     resource_id = '1234-1234'
     uri = '/blah'
@@ -30,12 +36,16 @@ def test_get_data_200():
     expected_response = """{}"""
 
     responses.add(
-        responses.GET, expected_url, body=expected_response, status=200, content_type='applicaiton/json'
+        responses.GET,
+        expected_url,
+        body=expected_response,
+        status=200,
+        content_type='applicaiton/json'
     )
 
     # Act
     obj = Solcast(api_key, resource_id)
-    response = obj._get_data(uri)
+    response = obj._get_data(uri)  # pylint: disable=protected-access
 
     # Assert
     assert response == json.loads(expected_response)
@@ -43,8 +53,8 @@ def test_get_data_200():
 
 @responses.activate
 def test_get_data_timeout():
+    """Test get_data with timeout."""
     # Arrange
-    import json
     api_key = '12345'
     resource_id = '1234-1234'
     uri = '/blah'
@@ -61,7 +71,7 @@ def test_get_data_timeout():
     # Act
     obj = Solcast(api_key, resource_id)
     with pytest.raises(ConnectTimeout):
-        obj._get_data(uri)
+        obj._get_data(uri)  # pylint: disable=protected-access
 
     # Assert
 
@@ -70,7 +80,6 @@ def test_get_data_timeout():
 def test_post_data():
     """Test post_measurements with 200 status code."""
     # Arrange
-    import json
     api_key = '12345'
     resource_id = '1234-1234'
     endpoint = '/measurements'
@@ -85,12 +94,16 @@ def test_post_data():
     }"""
 
     responses.add(
-        responses.POST, expected_url, body=measurement_single, status=200, content_type='applicaiton/json'
+        responses.POST,
+        expected_url,
+        body=measurement_single,
+        status=200,
+        content_type='applicaiton/json'
     )
 
     # Act
     obj = Solcast(api_key, resource_id)
-    measurement_response = obj._post_data(endpoint, measurement_single)
+    measurement_response = obj._post_data(endpoint, measurement_single)  # pylint: disable=protected-access
 
     # Assert
     assert isinstance(measurement_response, dict)
@@ -99,8 +112,8 @@ def test_post_data():
 
 @responses.activate
 def test_post_data_timeout():
+    """Test post data with timeout."""
     # Arrange
-    import json
     api_key = '12345'
     resource_id = '1234-1234'
     uri = '/blah'
@@ -125,6 +138,6 @@ def test_post_data_timeout():
     # Act
     obj = Solcast(api_key, resource_id)
     with pytest.raises(ConnectTimeout):
-        obj._post_data(uri, measurement_single)
+        obj._post_data(uri, measurement_single)  # pylint: disable=protected-access
 
     # Assert

@@ -1,9 +1,8 @@
 """Tests for `RoofTopSite` class."""
 
+import json
 import responses
 import pytest
-
-
 from solcast.rooftop import RooftopSite
 from solcast.exceptions import ValidationError, SiteNotFound, RateLimitExceeded
 
@@ -12,6 +11,7 @@ ROOFTOP_URI = '/rooftop_sites/'
 
 
 def test_RooftopSite():
+    """Test creating object."""
     # Arrange
     api_key = '12345'
     resource_id = '1234-1234'
@@ -52,7 +52,11 @@ def test_get_forecasts_200():
     }"""
 
     responses.add(
-        responses.GET, expected_url, body=forecast_response, status=200, content_type='applicaiton/json'
+        responses.GET,
+        expected_url,
+        body=forecast_response,
+        status=200,
+        content_type='applicaiton/json'
     )
 
     # Act
@@ -154,7 +158,11 @@ def test_get_estimated_actuals_200():
     }"""
 
     responses.add(
-        responses.GET, expected_url, body=estimated_actual_response, status=200, content_type='applicaiton/json'
+        responses.GET,
+        expected_url,
+        body=estimated_actual_response,
+        status=200,
+        content_type='applicaiton/json'
     )
 
     # Act
@@ -235,7 +243,6 @@ def test_get_estimated_actuals_429():
 def test_post_measurements_single():
     """Test post_measurements with 200 status code."""
     # Arrange
-    import json
     api_key = '12345'
     resource_id = '1234-1234'
     endpoint = '/measurements'
@@ -250,7 +257,11 @@ def test_post_measurements_single():
     }"""
 
     responses.add(
-        responses.POST, expected_url, body=measurement_single, status=200, content_type='applicaiton/json'
+        responses.POST,
+        expected_url,
+        body=measurement_single,
+        status=200,
+        content_type='applicaiton/json'
     )
 
     # Act
