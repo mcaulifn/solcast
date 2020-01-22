@@ -1,11 +1,13 @@
-from requests import get, post
-from requests.exceptions import ConnectionError, Timeout
+"""Base class"""
 import logging
 import time
+from requests import get, post
+import requests.exceptions
 from solcast.exceptions import SiteNotFound, ValidationError, RateLimitExceeded
 
 
-class Solcast:
+class Solcast:  # pylint: disable=too-few-public-methods
+    """Base object."""
     base_url = 'https://api.solcast.com.au'
 
     def __init__(self, api_key: str, resource_id: str):
@@ -13,12 +15,13 @@ class Solcast:
         self.resource_id = resource_id
         self.logger = logging.getLogger()
 
-    def _get_data(self, uri: str) -> dict:
+    def _get_data(self, uri: str) -> dict:  # pylint: disable=inconsistent-return-statements
+        """Get data from API."""
         url = f'{Solcast.base_url}{uri}'
         payload = {'format': 'json'}
         try:
             _get_response = get(url, auth=(self.api_key, ''), params=payload)
-        except (ConnectionError, Timeout) as error:
+        except (requests.exceptions.ConnectionError, requests.exceptions.Timeout) as error:
             self.logger.info(error)
             raise error
         if _get_response.status_code == 200:
@@ -26,18 +29,20 @@ class Solcast:
         if _get_response.status_code == 429:
             now = time.time()
             sleep_time = int(_get_response.headers.get('x-rate-limit-reset')) - now
-            self.logger.info(f'Solcast API rate limit reached. Wait {sleep_time} seconds')
+            self.logger.info(  # pylint: disable=logging-format-interpolation
+                f'Solcast API rate limit reached. Wait {sleep_time} seconds')
             raise RateLimitExceeded
         if _get_response.status_code == 400:
             raise ValidationError
         if _get_response.status_code == 404:
             raise SiteNotFound
 
-    def _post_data(self, uri: str, data: dict) -> dict:
+    def _post_data(self, uri: str, data: dict) -> dict:  # pylint: disable=inconsistent-return-statements
+        """Post data to API."""
         url = f'{Solcast.base_url}{uri}'
         try:
             _post_response = post(url, data=data)
-        except (ConnectionError, Timeout) as error:
+        except (requests.exceptions.ConnectionError, requests.exceptions.Timeout) as error:
             self.logger.info(error)
             raise error
         if _post_response.status_code == 200:
@@ -47,5 +52,6 @@ class Solcast:
         if _post_response.status_code == 404:
             raise SiteNotFound
 
-    def create_uri(self, uri, endpoint):
+    def create_uri(self, uri, endpoint) -> str:
+        """Create a URI for specific endpoint."""
         return f'{uri}{self.resource_id}{endpoint}'

@@ -1,10 +1,13 @@
-class ValidationError(Exception):
+"""Exceptions Module."""
+
+
+class ValidationError(Exception):  # pylint: disable=missing-class-docstring
     pass
 
 
-class SiteNotFound(Exception):
+class SiteNotFound(Exception):  # pylint: disable=missing-class-docstring
     pass
 
 
-class RateLimitExceeded(Exception):
+class RateLimitExceeded(Exception):  # pylint: disable=missing-class-docstring
     pass
