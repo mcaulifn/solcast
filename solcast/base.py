@@ -15,10 +15,12 @@ class Solcast:  # pylint: disable=too-few-public-methods
         self.resource_id = resource_id
         self.logger = logging.getLogger()
 
-    def _get_data(self, uri: str) -> dict:  # pylint: disable=inconsistent-return-statements
+    def _get_data(self, uri: str, params=None) -> dict:  # pylint: disable=inconsistent-return-statements
         """Get data from API."""
         url = f'{Solcast.base_url}{uri}'
         payload = {'format': 'json'}
+        if params:
+            payload = {**payload, **params}
         try:
             _get_response = get(url, auth=(self.api_key, ''), params=payload)
         except (requests.exceptions.ConnectionError, requests.exceptions.Timeout) as error:
