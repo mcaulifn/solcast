@@ -1,13 +1,12 @@
 """Tests for `UtilitySite` class."""
 
-import json
 import responses
 import pytest
 from solcast.utility import UtilitySite
 from solcast.exceptions import ValidationError, SiteNotFound, RateLimitExceeded
 
 BASE_URL = 'https://api.solcast.com.au'
-UTILTY_URI = '/utility_scale_sites/'
+UTILTY_URI = 'utility_scale_sites'
 
 
 def test_UtilitySite():
@@ -29,12 +28,12 @@ def test_get_forecasts_200():
     # Arrange
     api_key = '12345'
     resource_id = '1234-1234'
-    endpoint = '/forecasts'
+    endpoint = 'forecasts'
     period = 'PT30M'
     hours = '170'
-    expected_url = f'{BASE_URL}{UTILTY_URI}{resource_id}{endpoint}'
+    expected_url = f'{BASE_URL}/{UTILTY_URI}/{resource_id}/{endpoint}'
 
-    forecast_response = """{
+    forecast_response = {
         "forecasts": [
             {
                 "pv_estimate": "9.5",
@@ -51,12 +50,12 @@ def test_get_forecasts_200():
                 "period": "PT30M"
             }
         ]
-    }"""
+    }
 
     responses.add(
         responses.GET,
         expected_url,
-        body=forecast_response,
+        json=forecast_response,
         status=200,
         content_type='applicaiton/json'
     )
@@ -76,10 +75,10 @@ def test_get_forecasts_400():
     # Arrange
     api_key = '12345'
     resource_id = '1234-1234'
-    endpoint = '/forecasts'
+    endpoint = 'forecasts'
     period = 'PT30M'
     hours = '170'
-    expected_url = f'{BASE_URL}{UTILTY_URI}{resource_id}{endpoint}'
+    expected_url = f'{BASE_URL}/{UTILTY_URI}/{resource_id}/{endpoint}'
 
     responses.add(
         responses.GET, expected_url, status=400
@@ -99,10 +98,10 @@ def test_get_forecasts_404():
     # Arrange
     api_key = '12345'
     resource_id = '1234-1234'
-    endpoint = '/forecasts'
+    endpoint = 'forecasts'
     period = 'PT30M'
     hours = '170'
-    expected_url = f'{BASE_URL}{UTILTY_URI}{resource_id}{endpoint}'
+    expected_url = f'{BASE_URL}/{UTILTY_URI}/{resource_id}/{endpoint}'
 
     responses.add(
         responses.GET, expected_url, status=404
@@ -122,10 +121,10 @@ def test_get_forecasts_429():
     # Arrange
     api_key = '12345'
     resource_id = '1234-1234'
-    endpoint = '/forecasts'
+    endpoint = 'forecasts'
     period = 'PT30M'
     hours = '170'
-    expected_url = f'{BASE_URL}{UTILTY_URI}{resource_id}{endpoint}'
+    expected_url = f'{BASE_URL}/{UTILTY_URI}/{resource_id}/{endpoint}'
     headers = {
         'x-rate-limit-reset': '155555555'
     }
@@ -147,30 +146,30 @@ def test_get_estimated_actuals_200():
     # Arrange
     api_key = '12345'
     resource_id = '1234-1234'
-    endpoint = '/estimated_actuals'
+    endpoint = 'estimated_actuals'
     period = 'PT30M'
     hours = '170'
-    expected_url = f'{BASE_URL}{UTILTY_URI}{resource_id}{endpoint}'
+    expected_url = f'{BASE_URL}/{UTILTY_URI}/{resource_id}/{endpoint}'
 
-    estimated_actual_response = """{
+    estimated_actual_response = {
         "estimated_actuals": [
             {
-            "pv_estimate": "10",
-            "period_end": "2018-01-01T01:00:00.00000Z",
-            "period": "PT30M"
+                "pv_estimate": "10",
+                "period_end": "2018-01-01T01:00:00.00000Z",
+                "period": "PT30M"
             },
             {
-            "pv_estimate": "9",
-            "period_end": "2018-01-01T12:30:00.00000Z",
-            "period": "PT30M"
+                "pv_estimate": "9",
+                "period_end": "2018-01-01T12:30:00.00000Z",
+                "period": "PT30M"
             }
         ]
-    }"""
+    }
 
     responses.add(
         responses.GET,
         expected_url,
-        body=estimated_actual_response,
+        json=estimated_actual_response,
         status=200,
         content_type='applicaiton/json'
     )
@@ -190,10 +189,10 @@ def test_get_estimated_actuals_400():
     # Arrange
     api_key = '12345'
     resource_id = '1234-1234'
-    endpoint = '/estimated_actuals'
+    endpoint = 'estimated_actuals'
     period = 'PT30M'
     hours = '170'
-    expected_url = f'{BASE_URL}{UTILTY_URI}{resource_id}{endpoint}'
+    expected_url = f'{BASE_URL}/{UTILTY_URI}/{resource_id}/{endpoint}'
 
     responses.add(
         responses.GET, expected_url, status=400
@@ -213,10 +212,10 @@ def test_get_estimated_actuals_404():
     # Arrange
     api_key = '12345'
     resource_id = '1234-1234'
-    endpoint = '/estimated_actuals'
+    endpoint = 'estimated_actuals'
     period = 'PT30M'
     hours = '170'
-    expected_url = f'{BASE_URL}{UTILTY_URI}{resource_id}{endpoint}'
+    expected_url = f'{BASE_URL}/{UTILTY_URI}/{resource_id}/{endpoint}'
 
     responses.add(
         responses.GET, expected_url, status=404
@@ -236,10 +235,10 @@ def test_get_estimated_actuals_429():
     # Arrange
     api_key = '12345'
     resource_id = '1234-1234'
-    endpoint = '/estimated_actuals'
+    endpoint = 'estimated_actuals'
     period = 'PT30M'
     hours = '170'
-    expected_url = f'{BASE_URL}{UTILTY_URI}{resource_id}{endpoint}'
+    expected_url = f'{BASE_URL}/{UTILTY_URI}/{resource_id}/{endpoint}'
     headers = {
         'x-rate-limit-reset': '155555555'
     }
@@ -261,12 +260,12 @@ def test_get_radiation_forecasts_200():
     # Arrange
     api_key = '12345'
     resource_id = '1234-1234'
-    endpoint = '/weather/forecasts'
+    endpoint = 'weather/forecasts'
     period = 'PT30M'
     hours = '170'
-    expected_url = f'{BASE_URL}{UTILTY_URI}{resource_id}{endpoint}'
+    expected_url = f'{BASE_URL}/{UTILTY_URI}/{resource_id}/{endpoint}'
 
-    forecast_response = """{
+    forecast_response = {
         "forecasts": [
             {
                 "pv_estimate": "9.5",
@@ -283,12 +282,12 @@ def test_get_radiation_forecasts_200():
                 "period": "PT30M"
             }
         ]
-    }"""
+    }
 
     responses.add(
         responses.GET,
         expected_url,
-        body=forecast_response,
+        json=forecast_response,
         status=200,
         content_type='applicaiton/json'
     )
@@ -308,10 +307,10 @@ def test_get_radiation_forecasts_400():
     # Arrange
     api_key = '12345'
     resource_id = '1234-1234'
-    endpoint = '/weather/forecasts'
+    endpoint = 'weather/forecasts'
     period = 'PT30M'
     hours = '170'
-    expected_url = f'{BASE_URL}{UTILTY_URI}{resource_id}{endpoint}'
+    expected_url = f'{BASE_URL}/{UTILTY_URI}/{resource_id}/{endpoint}'
 
     responses.add(
         responses.GET, expected_url, status=400
@@ -331,10 +330,10 @@ def test_get_radiation_forecasts_404():
     # Arrange
     api_key = '12345'
     resource_id = '1234-1234'
-    endpoint = '/weather/forecasts'
+    endpoint = 'weather/forecasts'
     period = 'PT30M'
     hours = '170'
-    expected_url = f'{BASE_URL}{UTILTY_URI}{resource_id}{endpoint}'
+    expected_url = f'{BASE_URL}/{UTILTY_URI}/{resource_id}/{endpoint}'
 
     responses.add(
         responses.GET, expected_url, status=404
@@ -354,10 +353,10 @@ def test_get_radiation_forecasts_429():
     # Arrange
     api_key = '12345'
     resource_id = '1234-1234'
-    endpoint = '/weather/forecasts'
+    endpoint = 'weather/forecasts'
     period = 'PT30M'
     hours = '170'
-    expected_url = f'{BASE_URL}{UTILTY_URI}{resource_id}{endpoint}'
+    expected_url = f'{BASE_URL}/{UTILTY_URI}/{resource_id}/{endpoint}'
     headers = {
         'x-rate-limit-reset': '155555555'
     }
@@ -379,30 +378,30 @@ def test_get_radiation_estimated_actuals_200():
     # Arrange
     api_key = '12345'
     resource_id = '1234-1234'
-    endpoint = '/weather/estimated_actuals'
+    endpoint = 'weather/estimated_actuals'
     period = 'PT30M'
     hours = '170'
-    expected_url = f'{BASE_URL}{UTILTY_URI}{resource_id}{endpoint}'
+    expected_url = f'{BASE_URL}/{UTILTY_URI}/{resource_id}/{endpoint}'
 
-    estimated_actual_response = """{
+    estimated_actual_response = {
         "estimated_actuals": [
             {
-            "pv_estimate": "10",
-            "period_end": "2018-01-01T01:00:00.00000Z",
-            "period": "PT30M"
+                "pv_estimate": "10",
+                "period_end": "2018-01-01T01:00:00.00000Z",
+                "period": "PT30M"
             },
             {
-            "pv_estimate": "9",
-            "period_end": "2018-01-01T12:30:00.00000Z",
-            "period": "PT30M"
+                "pv_estimate": "9",
+                "period_end": "2018-01-01T12:30:00.00000Z",
+                "period": "PT30M"
             }
         ]
-    }"""
+    }
 
     responses.add(
         responses.GET,
         expected_url,
-        body=estimated_actual_response,
+        json=estimated_actual_response,
         status=200,
         content_type='applicaiton/json'
     )
@@ -422,10 +421,10 @@ def test_get_radiation_estimated_actuals_400():
     # Arrange
     api_key = '12345'
     resource_id = '1234-1234'
-    endpoint = '/weather/estimated_actuals'
+    endpoint = 'weather/estimated_actuals'
     period = 'PT30M'
     hours = '170'
-    expected_url = f'{BASE_URL}{UTILTY_URI}{resource_id}{endpoint}'
+    expected_url = f'{BASE_URL}/{UTILTY_URI}/{resource_id}/{endpoint}'
 
     responses.add(
         responses.GET, expected_url, status=400
@@ -445,10 +444,10 @@ def test_get_radiation_estimated_actuals_404():
     # Arrange
     api_key = '12345'
     resource_id = '1234-1234'
-    endpoint = '/weather/estimated_actuals'
+    endpoint = 'weather/estimated_actuals'
     period = 'PT30M'
     hours = '170'
-    expected_url = f'{BASE_URL}{UTILTY_URI}{resource_id}{endpoint}'
+    expected_url = f'{BASE_URL}/{UTILTY_URI}/{resource_id}/{endpoint}'
 
     responses.add(
         responses.GET, expected_url, status=404
@@ -468,10 +467,10 @@ def test_get_radiation_estimated_actuals_429():
     # Arrange
     api_key = '12345'
     resource_id = '1234-1234'
-    endpoint = '/weather/estimated_actuals'
+    endpoint = 'weather/estimated_actuals'
     period = 'PT30M'
     hours = '170'
-    expected_url = f'{BASE_URL}{UTILTY_URI}{resource_id}{endpoint}'
+    expected_url = f'{BASE_URL}/{UTILTY_URI}/{resource_id}/{endpoint}'
     headers = {
         'x-rate-limit-reset': '155555555'
     }
@@ -493,21 +492,21 @@ def test_post_measurements_single():
     # Arrange
     api_key = '12345'
     resource_id = '1234-1234'
-    endpoint = '/measurements'
-    expected_url = f'{BASE_URL}{UTILTY_URI}{resource_id}{endpoint}'
+    endpoint = 'measurements'
+    expected_url = f'{BASE_URL}/{UTILTY_URI}/{resource_id}/{endpoint}'
 
-    measurement_single = """{
+    measurement_single = {
         "measurement": {
             "period_end": "2018-02-02T03:30:00.0000000Z",
             "period": "PT5M",
             "total_power": 1.23456
         }
-    }"""
+    }
 
     responses.add(
         responses.POST,
         expected_url,
-        body=measurement_single,
+        json=measurement_single,
         status=200,
         content_type='applicaiton/json'
     )
@@ -518,7 +517,7 @@ def test_post_measurements_single():
 
     # Assert
     assert isinstance(measurement_response, dict)
-    assert measurement_response == json.loads(measurement_single)
+    assert measurement_response == measurement_single
 
 
 @responses.activate
@@ -527,15 +526,15 @@ def test_post_measurements_400():
     # Arrange
     api_key = '12345'
     resource_id = '1234-1234'
-    endpoint = '/measurements'
-    expected_url = f'{BASE_URL}{UTILTY_URI}{resource_id}{endpoint}'
-    measurement_single = """{
+    endpoint = 'measurements'
+    expected_url = f'{BASE_URL}/{UTILTY_URI}/{resource_id}/{endpoint}'
+    measurement_single = {
         "measurement": {
             "period_end": "2018-02-02T03:30:00.0000000Z",
             "period": "PT5M",
             "total_power": 1.23456
         }
-    }"""
+    }
 
     responses.add(
         responses.POST, expected_url, status=400
@@ -555,15 +554,15 @@ def test_post_measurements_404():
     # Arrange
     api_key = '12345'
     resource_id = '1234-1234'
-    endpoint = '/measurements'
-    expected_url = f'{BASE_URL}{UTILTY_URI}{resource_id}{endpoint}'
-    measurement_single = """{
+    endpoint = 'measurements'
+    expected_url = f'{BASE_URL}/{UTILTY_URI}/{resource_id}/{endpoint}'
+    measurement_single = {
         "measurement": {
             "period_end": "2018-02-02T03:30:00.0000000Z",
             "period": "PT5M",
             "total_power": 1.23456
         }
-    }"""
+    }
 
     responses.add(
         responses.POST, expected_url, status=404

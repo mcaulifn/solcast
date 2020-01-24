@@ -5,19 +5,19 @@ from solcast.base import Solcast
 class RooftopSite(Solcast):
     """Class for interacting with Rooftop."""
 
-    base_uri = '/rooftop_sites/'
+    base_uri = 'rooftop_sites'
 
     def get_forecasts(self):
         """Get forecasts data for site."""
-        endpoint = '/forecasts'
+        endpoint = 'forecasts'
         return self._get_data(self.create_uri(self.base_uri, endpoint))
 
     def get_estimated_actuals(self):
         """Get estimated actuals data for site."""
-        endpoint = '/estimated_actuals'
+        endpoint = 'estimated_actuals'
         return self._get_data(self.create_uri(self.base_uri, endpoint))
 
     def post_measurements(self, data: dict):
         """Post measurement data for site."""
-        endpoint = '/measurements'
+        endpoint = 'measurements'
         return self._post_data(self.create_uri(self.base_uri, endpoint), data)
