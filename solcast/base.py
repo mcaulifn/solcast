@@ -56,4 +56,4 @@ class Solcast:  # pylint: disable=too-few-public-methods
 
     def create_uri(self, uri, endpoint) -> str:
         """Create a URI for specific endpoint."""
-        return f'{uri}{self.resource_id}{endpoint}'
+        return f'/{uri}/{self.resource_id}/{endpoint}'
