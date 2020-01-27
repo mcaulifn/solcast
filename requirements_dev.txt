@@ -6,6 +6,7 @@ flake8
 tox
 pytest
 pytest-cov
+sphinx-autodoc-typehints
 Sphinx
 twine
 autopep8
