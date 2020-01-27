@@ -15,7 +15,7 @@ class Solcast:  # pylint: disable=too-few-public-methods
         self.resource_id = resource_id
         self.logger = logging.getLogger()
 
-    def _get_data(self, uri: str, params=None) -> dict:  # pylint: disable=inconsistent-return-statements
+    def _get_data(self, uri: str, params: dict = None) -> dict:  # pylint: disable=inconsistent-return-statements
         """Get data from API."""
         url = f'{Solcast.base_url}{uri}'
         payload = {'format': 'json'}
@@ -54,6 +54,6 @@ class Solcast:  # pylint: disable=too-few-public-methods
         if _post_response.status_code == 404:
             raise SiteNotFound
 
-    def create_uri(self, uri, endpoint) -> str:
+    def create_uri(self, uri: str, endpoint: str) -> str:
         """Create a URI for specific endpoint."""
         return f'/{uri}/{self.resource_id}/{endpoint}'

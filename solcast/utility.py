@@ -7,7 +7,7 @@ class UtilitySite(Solcast):
 
     base_uri = 'utility_scale_sites'
 
-    def get_forecasts(self, period, hours):
+    def get_forecasts(self, period: str, hours: str) -> dict:
         """Get forecasts data for site."""
         endpoint = 'forecasts'
         payload = {
@@ -16,7 +16,7 @@ class UtilitySite(Solcast):
         }
         return self._get_data(self.create_uri(self.base_uri, endpoint), params=payload)
 
-    def get_estimated_actuals(self, period, hours):
+    def get_estimated_actuals(self, period: str, hours: str) -> dict:
         """Get estimated actuals data for site."""
         endpoint = 'estimated_actuals'
         payload = {
@@ -25,7 +25,7 @@ class UtilitySite(Solcast):
         }
         return self._get_data(self.create_uri(self.base_uri, endpoint), params=payload)
 
-    def get_radiation_forecasts(self, period, hours):
+    def get_radiation_forecasts(self, period: str, hours: str) -> dict:
         """Get radiation forecasts data for site."""
         endpoint = 'weather/forecasts'
         payload = {
@@ -34,7 +34,7 @@ class UtilitySite(Solcast):
         }
         return self._get_data(self.create_uri(self.base_uri, endpoint), params=payload)
 
-    def get_radiation_estimated_actuals(self, period, hours):
+    def get_radiation_estimated_actuals(self, period: str, hours: str) -> dict:
         """Get radiation estimated actual data for site."""
         endpoint = 'weather/estimated_actuals'
         payload = {
