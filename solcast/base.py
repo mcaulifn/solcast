@@ -1,7 +1,7 @@
 """Base class"""
 import logging
 import time
-from isodate import parse_datetime, parse_duration  # , ISO8601Error
+from isodate import parse_datetime, parse_duration
 from requests import get, post
 import requests.exceptions
 from solcast.exceptions import SiteNotFound, ValidationError, RateLimitExceeded
@@ -64,14 +64,8 @@ def parse_date_time(dic: dict, tld_key: str) -> dict:
     """Parse datetime and duration objects."""
     for item in dic[tld_key]:
         for key, value in item.items():
-            # try:
             if key == 'period_end':
                 item[key] = parse_datetime(value)
-            # except ISO8601Error:
-            #    pass
-            # try:
             if key == 'period':
                 item[key] = parse_duration(value)
-            # except ISO8601Error:
-            #    pass
     return dic
