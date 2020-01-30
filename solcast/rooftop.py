@@ -1,5 +1,5 @@
 """Main module."""
-from solcast.base import Solcast
+from solcast.base import Solcast, parse_date_time
 
 
 class RooftopSite(Solcast):
@@ -10,7 +10,8 @@ class RooftopSite(Solcast):
     def get_forecasts(self) -> dict:
         """Get forecasts data for site."""
         endpoint = 'forecasts'
-        return self._get_data(self.create_uri(self.base_uri, endpoint))
+        forecasts = self._get_data(self.create_uri(self.base_uri, endpoint))
+        return parse_date_time(forecasts, endpoint)
 
     def get_estimated_actuals(self) -> dict:
         """Get estimated actuals data for site."""
