@@ -1,6 +1,6 @@
 """Base class"""
 import logging
-import time
+#import time
 from isodate import parse_datetime, parse_duration
 from requests import get, post
 import requests.exceptions
