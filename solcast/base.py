@@ -30,10 +30,13 @@ class Solcast:  # pylint: disable=too-few-public-methods
         if _get_response.status_code == 200:
             return _get_response.json()
         if _get_response.status_code == 429:
-            now = time.time()
-            sleep_time = int(_get_response.headers.get('x-rate-limit-reset')) - now
-            self.logger.info(  # pylint: disable=logging-format-interpolation
-                f'Solcast API rate limit reached. Wait {sleep_time} seconds')
+            #now = time.time()
+            #sleep_time = int(_get_response.headers.get('x-rate-limit-reset')) - now
+            # self.logger.info(  # pylint: disable=logging-format-interpolation
+            #    f'Solcast API rate limit reached. Wait {sleep_time} seconds')
+            self.logger.info('Solcast API rate limit reached.')
+            self.logger.info(f'headers: {_get_response.headers}')
+            self.logger.info(f'text: {_get_response.text}')
             raise RateLimitExceeded
         if _get_response.status_code == 400:
             raise ValidationError
