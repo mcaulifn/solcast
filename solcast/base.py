@@ -25,7 +25,7 @@ class Solcast:  # pylint: disable=too-few-public-methods
         try:
             _get_response = get(url, auth=(self.api_key, ''), params=payload)
         except (requests.exceptions.ConnectionError, requests.exceptions.Timeout) as error:
-            self.logger.info(error)
+            self.logger.info(f'Error getting data: {error}')  # pylint: disable=logging-format-interpolation
             raise error
         if _get_response.status_code == 200:
             return _get_response.json()
@@ -39,8 +39,10 @@ class Solcast:  # pylint: disable=too-few-public-methods
             self.logger.info(f'text: {_get_response.text}')
             raise RateLimitExceeded
         if _get_response.status_code == 400:
+            self.logger.info(f'Validation error: {error}')  # pylint: disable=logging-format-interpolation
             raise ValidationError
         if _get_response.status_code == 404:
+            self.logger.info(f'Site not found: {error}')  # pylint: disable=logging-format-interpolation
             raise SiteNotFound
 
     def _post_data(self, uri: str, data: dict) -> dict:  # pylint: disable=inconsistent-return-statements
