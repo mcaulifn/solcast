@@ -37,14 +37,15 @@ class Solcast:  # pylint: disable=too-few-public-methods
             self.logger.info('Solcast API rate limit reached.')
             self.logger.info(f'headers: {_get_response.headers}')
             self.logger.info(f'text: {_get_response.text}')
-            raise RateLimitExceeded
+            raise RateLimitExceeded(
+                f"Rate limit exceeded. Reset time: {_get_response.headers.get('x-rate-limit-reset')}")
         if _get_response.status_code == 400:
             self.logger.info(  # pylint: disable=logging-format-interpolation
                 f'Validation error: {_get_response.headers}')
-            raise ValidationError
+            raise ValidationError('Validation error')
         if _get_response.status_code == 404:
             self.logger.info(f'Site not found: {_get_response.headers}')  # pylint: disable=logging-format-interpolation
-            raise SiteNotFound
+            raise SiteNotFound('Site not found')
 
     def _post_data(self, uri: str, data: dict) -> dict:  # pylint: disable=inconsistent-return-statements
         """Post data to API."""
