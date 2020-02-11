@@ -38,7 +38,7 @@ class Solcast:  # pylint: disable=too-few-public-methods
             self.logger.info(f'headers: {_get_response.headers}')
             self.logger.info(f'text: {_get_response.text}')
             raise RateLimitExceeded(
-                f"Rate limit exceeded. Reset time: {_get_response.headers.get('x-rate-limit-reset')}")
+                f"Rate limit exceeded. Reset time: {_get_response.headers.get('x-rate-limit-reset')}")  # pylint: disable=line-too-long
         if _get_response.status_code == 400:
             self.logger.info(  # pylint: disable=logging-format-interpolation
                 f'Validation error: {_get_response.headers}')
