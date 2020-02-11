@@ -39,10 +39,11 @@ class Solcast:  # pylint: disable=too-few-public-methods
             self.logger.info(f'text: {_get_response.text}')
             raise RateLimitExceeded
         if _get_response.status_code == 400:
-            self.logger.info(f'Validation error: {error}')  # pylint: disable=logging-format-interpolation
+            self.logger.info(  # pylint: disable=logging-format-interpolation
+                f'Validation error: {_get_response.headers}')
             raise ValidationError
         if _get_response.status_code == 404:
-            self.logger.info(f'Site not found: {error}')  # pylint: disable=logging-format-interpolation
+            self.logger.info(f'Site not found: {_get_response.headers}')  # pylint: disable=logging-format-interpolation
             raise SiteNotFound
 
     def _post_data(self, uri: str, data: dict) -> dict:  # pylint: disable=inconsistent-return-statements
