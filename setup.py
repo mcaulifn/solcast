@@ -39,6 +39,6 @@ setup(
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/mcaulifn/solcast',
-    version='0.7.1',
+    version='1.0.0',
     zip_safe=False,
 )
