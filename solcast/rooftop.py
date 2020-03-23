@@ -10,6 +10,11 @@ class RooftopSite(Solcast):
     def get_forecasts(self) -> dict:
         """Get forecasts data for site."""
         endpoint = 'forecasts'
+        return self._get_data(self.create_uri(self.base_uri, endpoint))
+
+    def get_forecasts_parsed(self) -> dict:
+        """Get forecasts data for site."""
+        endpoint = 'forecasts'
         forecasts = self._get_data(self.create_uri(self.base_uri, endpoint))
         return parse_date_time(forecasts, endpoint)
 

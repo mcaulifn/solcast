@@ -19,7 +19,7 @@ test_requirements = ['pytest>=3', ]
 setup(
     author="Nathaniel McAuliffe",
     author_email='nathanielmcauliffe@hotmail.com',
-    python_requires='>=3.5',
+    python_requires='>=3.7',
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
         'Intended Audience :: Developers',
@@ -39,6 +39,6 @@ setup(
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/mcaulifn/solcast',
-    version='0.7.1',
+    version='1.0.0',
     zip_safe=False,
 )
