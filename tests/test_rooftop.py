@@ -68,6 +68,51 @@ def test_get_forecasts_200():
 
 
 @responses.activate
+def test_get_forecasts_parsed_200():
+    """Test get_forecasts_parsed with 200 status code."""
+    # Arrange
+    api_key = '12345'
+    resource_id = '1234-1234'
+    endpoint = 'forecasts'
+    expected_url = f'{BASE_URL}/{ROOFTOP_URI}/{resource_id}/{endpoint}'
+
+    forecast_response = {
+        "forecasts": [
+            {
+                "pv_estimate": "9.5",
+                "pv_estimate10": "6",
+                "pv_estimate90": "13.8",
+                "period_end": "2018-01-01T01:00:00.00000Z",
+                "period": "PT30M"
+            },
+            {
+                "pv_estimate": "10",
+                "pv_estimate10": "8",
+                "pv_estimate90": "12",
+                "period_end": "2018-01-01T12:30:00.00000Z",
+                "period": "PT30M"
+            }
+        ]
+    }
+
+    responses.add(
+        responses.GET,
+        expected_url,
+        json=forecast_response,
+        status=200,
+        content_type='applicaiton/json'
+    )
+
+    # Act
+    site = RooftopSite(api_key, resource_id)
+    forecasts = site.get_forecasts_parsed()
+
+    # Assert
+    assert isinstance(forecasts, dict)
+    assert len(forecasts['forecasts']) == 2
+
+
+@responses.activate
 def test_get_forecasts_400():
     """Test get_forecasts with 400 status code."""
     # Arrange
