@@ -4,7 +4,7 @@ import logging
 from isodate import parse_datetime, parse_duration
 from requests import get, post
 import requests.exceptions
-from solcast.exceptions import SiteNotFound, ValidationError, RateLimitExceeded
+from solcast.exceptions import SiteError, ValidationError, RateLimitExceeded
 
 
 class Solcast:  # pylint: disable=too-few-public-methods
@@ -30,13 +30,9 @@ class Solcast:  # pylint: disable=too-few-public-methods
         if _get_response.status_code == 200:
             return _get_response.json()
         if _get_response.status_code == 429:
-            #now = time.time()
-            #sleep_time = int(_get_response.headers.get('x-rate-limit-reset')) - now
-            # self.logger.info(  # pylint: disable=logging-format-interpolation
-            #    f'Solcast API rate limit reached. Wait {sleep_time} seconds')
             self.logger.info('Solcast API rate limit reached.')
-            self.logger.info(f'headers: {_get_response.headers}')
-            self.logger.info(f'text: {_get_response.text}')
+            self.logger.info('headers: %s', _get_response.headers)
+            self.logger.info('text: %s', _get_response.text)
             raise RateLimitExceeded(
                 f"Rate limit exceeded. Reset time: {_get_response.headers.get('x-rate-limit-reset')}")  # pylint: disable=line-too-long
         if _get_response.status_code == 400:
@@ -44,8 +40,8 @@ class Solcast:  # pylint: disable=too-few-public-methods
                 f'Validation error: {_get_response.headers}')
             raise ValidationError('Validation error')
         if _get_response.status_code == 404:
-            self.logger.info(f'Site not found: {_get_response.headers}')  # pylint: disable=logging-format-interpolation
-            raise SiteNotFound('Site not found')
+            self.logger.info(f'Site error: {_get_response.headers}')  # pylint: disable=logging-format-interpolation
+            raise SiteError('Site error')
 
     def _post_data(self, uri: str, data: dict) -> dict:  # pylint: disable=inconsistent-return-statements
         """Post data to API."""
@@ -60,9 +56,9 @@ class Solcast:  # pylint: disable=too-few-public-methods
         if _post_response.status_code == 400:
             raise ValidationError
         if _post_response.status_code == 404:
-            raise SiteNotFound
+            raise SiteError
 
-    def create_uri(self, uri: str, endpoint: str) -> str:
+    def _create_uri(self, uri: str, endpoint: str) -> str:
         """Create a URI for specific endpoint."""
         return f'/{uri}/{self.resource_id}/{endpoint}'
 

@@ -5,7 +5,7 @@ class ValidationError(Exception):  # pylint: disable=missing-class-docstring
     pass
 
 
-class SiteNotFound(Exception):  # pylint: disable=missing-class-docstring
+class SiteError(Exception):  # pylint: disable=missing-class-docstring
     pass
 
 

@@ -3,7 +3,7 @@
 import responses
 import pytest
 from solcast.utility import UtilitySite
-from solcast.exceptions import ValidationError, SiteNotFound, RateLimitExceeded
+from solcast.exceptions import ValidationError, SiteError, RateLimitExceeded
 
 BASE_URL = 'https://api.solcast.com.au'
 UTILTY_URI = 'utility_scale_sites'
@@ -109,7 +109,7 @@ def test_get_forecasts_404():
 
     # Act
     site = UtilitySite(api_key, resource_id)
-    with pytest.raises(SiteNotFound):
+    with pytest.raises(SiteError):
         site.get_forecasts(period, hours)
 
     # Assert
@@ -223,7 +223,7 @@ def test_get_estimated_actuals_404():
 
     # Act
     site = UtilitySite(api_key, resource_id)
-    with pytest.raises(SiteNotFound):
+    with pytest.raises(SiteError):
         site.get_estimated_actuals(period, hours)
 
     # Assert
@@ -341,7 +341,7 @@ def test_get_radiation_forecasts_404():
 
     # Act
     site = UtilitySite(api_key, resource_id)
-    with pytest.raises(SiteNotFound):
+    with pytest.raises(SiteError):
         site.get_radiation_forecasts(period, hours)
 
     # Assert
@@ -455,7 +455,7 @@ def test_get_radiation_estimated_actuals_404():
 
     # Act
     site = UtilitySite(api_key, resource_id)
-    with pytest.raises(SiteNotFound):
+    with pytest.raises(SiteError):
         site.get_radiation_estimated_actuals(period, hours)
 
     # Assert
@@ -570,7 +570,7 @@ def test_post_measurements_404():
 
     # Act
     site = UtilitySite(api_key, resource_id)
-    with pytest.raises(SiteNotFound):
+    with pytest.raises(SiteError):
         site.post_measurements(measurement_single)
 
     # Assert
