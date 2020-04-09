@@ -3,7 +3,7 @@
 import responses
 import pytest
 from solcast.weather import WeatherSite
-from solcast.exceptions import ValidationError, SiteNotFound, RateLimitExceeded
+from solcast.exceptions import ValidationError, SiteError, RateLimitExceeded
 
 BASE_URL = 'https://api.solcast.com.au'
 WEATHER_URI = 'weather_sites'
@@ -119,7 +119,7 @@ def test_get_forecasts_404():
 
     # Act
     site = WeatherSite(api_key, resource_id)
-    with pytest.raises(SiteNotFound):
+    with pytest.raises(SiteError):
         site.get_forecasts()
 
     # Assert
@@ -233,7 +233,7 @@ def test_get_estimated_actuals_404():
 
     # Act
     site = WeatherSite(api_key, resource_id)
-    with pytest.raises(SiteNotFound):
+    with pytest.raises(SiteError):
         site.get_estimated_actuals()
 
     # Assert
