@@ -2,12 +2,15 @@
 
 
 class ValidationError(Exception):  # pylint: disable=missing-class-docstring
-    pass
+    """Data validation error."""
 
 
 class SiteError(Exception):  # pylint: disable=missing-class-docstring
-    pass
+    """Site Error.
+
+    Site is not found or not accessable.
+    """
 
 
 class RateLimitExceeded(Exception):  # pylint: disable=missing-class-docstring
-    pass
+    """Rate limit exceeded."""

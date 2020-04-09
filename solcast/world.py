@@ -1,4 +1,4 @@
-"""World Solar Radiation module."""
+"""World Solar Radiation Module."""
 import logging
 from solcast.base import Solcast
 

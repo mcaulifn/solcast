@@ -1,4 +1,4 @@
-"""Main module."""
+"""Utility Site Module."""
 from solcast.base import Solcast
 
 

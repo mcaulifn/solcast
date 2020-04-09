@@ -1,6 +1,8 @@
-"""Base class"""
+"""Solcast Base Module.
+
+Extended by site classes.
+"""
 import logging
-#import time
 from isodate import parse_datetime, parse_duration
 from requests import get, post
 import requests.exceptions
@@ -8,7 +10,8 @@ from solcast.exceptions import SiteError, ValidationError, RateLimitExceeded
 
 
 class Solcast:  # pylint: disable=too-few-public-methods
-    """Base object."""
+    """Solcast class."""
+
     base_url = 'https://api.solcast.com.au'
 
     def __init__(self, api_key: str, resource_id: str):

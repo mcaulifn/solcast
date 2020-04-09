@@ -1,4 +1,4 @@
-"""Weather site module."""
+"""Weather site Module."""
 from solcast.base import Solcast
 
 

@@ -1,4 +1,4 @@
-"""Main module."""
+"""Rooftop Site Module."""
 from solcast.base import Solcast, parse_date_time
 
 
