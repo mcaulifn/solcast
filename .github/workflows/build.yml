@@ -1,4 +1,4 @@
-name: package
+name: build
 
 on:
   push:
@@ -26,3 +26,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install tox
           tox -e py
+      - uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
+          file: ./coverage.xml # optional
+          flags: unittests # optional
+          name: codecov-umbrella # optional
+          #fail_ci_if_error: true # optional (default = false)
