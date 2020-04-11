@@ -27,5 +27,5 @@ Full API Documentation_.
 .. _Documentation: https://docs.solcast.com.au
 
 
-.. |Build Status| image:: https://github.com/mcaulifn/solcast/workflows/package/badge.svg
+.. |Build Status| image:: https://github.com/mcaulifn/solcast/workflows/main/badge.svg
    :target: https://github.com/mcaulifn/solcast
