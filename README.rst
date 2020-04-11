@@ -2,7 +2,7 @@
 solcast
 =======
 
-| |Build Status|
+| |Build Status| |CodeCov|
 
 
 
@@ -29,3 +29,6 @@ Full API Documentation_.
 
 .. |Build Status| image:: https://github.com/mcaulifn/solcast/workflows/build/badge.svg
    :target: https://github.com/mcaulifn/solcast
+
+.. |CodeCov| image:: https://codecov.io/gh/mcaulifn/solcast/branch/master/graph/badge.svg?token=04NTIH61T2
+  :target: https://codecov.io/gh/mcaulifn/solcast
