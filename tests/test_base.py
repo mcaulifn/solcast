@@ -4,7 +4,7 @@ import json
 import responses
 from requests.exceptions import ConnectTimeout
 import pytest
-from solcast.base import Solcast
+from pysolcast.base import PySolcast
 
 
 BASE_URL = 'https://api.solcast.com.au'
@@ -18,10 +18,10 @@ def test_Solcast_init():
     #endpoint = '/blah'
 
     # Act
-    obj = Solcast(api_key, resource_id)
+    obj = PySolcast(api_key, resource_id)
 
     # Assert
-    assert isinstance(obj, Solcast)
+    assert isinstance(obj, PySolcast)
 
 
 @responses.activate
@@ -44,7 +44,7 @@ def test_get_data_200():
     )
 
     # Act
-    obj = Solcast(api_key, resource_id)
+    obj = PySolcast(api_key, resource_id)
     response = obj._get_data(uri)  # pylint: disable=protected-access
 
     # Assert
@@ -69,7 +69,7 @@ def test_get_data_timeout():
     )
 
     # Act
-    obj = Solcast(api_key, resource_id)
+    obj = PySolcast(api_key, resource_id)
     with pytest.raises(ConnectTimeout):
         obj._get_data(uri)  # pylint: disable=protected-access
 
@@ -102,7 +102,7 @@ def test_post_data():
     )
 
     # Act
-    obj = Solcast(api_key, resource_id)
+    obj = PySolcast(api_key, resource_id)
     measurement_response = obj._post_data(endpoint, measurement_single)  # pylint: disable=protected-access
 
     # Assert
@@ -136,7 +136,7 @@ def test_post_data_timeout():
     )
 
     # Act
-    obj = Solcast(api_key, resource_id)
+    obj = PySolcast(api_key, resource_id)
     with pytest.raises(ConnectTimeout):
         obj._post_data(uri, measurement_single)  # pylint: disable=protected-access
 

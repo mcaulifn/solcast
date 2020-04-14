@@ -2,8 +2,8 @@
 
 import responses
 import pytest
-from solcast.weather import WeatherSite
-from solcast.exceptions import ValidationError, SiteError, RateLimitExceeded
+from pysolcast.weather import WeatherSite
+from pysolcast.exceptions import ValidationError, SiteError, RateLimitExceeded
 
 BASE_URL = 'https://api.solcast.com.au'
 WEATHER_URI = 'weather_sites'

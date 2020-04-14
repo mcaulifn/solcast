@@ -1,4 +1,4 @@
-"""Solcast Base Module.
+"""PySolcast Base Module.
 
 Extended by site classes.
 """
@@ -6,11 +6,11 @@ import logging
 from isodate import parse_datetime, parse_duration
 from requests import get, post
 import requests.exceptions
-from solcast.exceptions import SiteError, ValidationError, RateLimitExceeded
+from pysolcast.exceptions import SiteError, ValidationError, RateLimitExceeded
 
 
-class Solcast:  # pylint: disable=too-few-public-methods
-    """Solcast class."""
+class PySolcast:  # pylint: disable=too-few-public-methods
+    """PySolcast class."""
 
     base_url = 'https://api.solcast.com.au'
 
@@ -21,7 +21,7 @@ class Solcast:  # pylint: disable=too-few-public-methods
 
     def _get_data(self, uri: str, params: dict = None) -> dict:  # pylint: disable=inconsistent-return-statements
         """Get data from API."""
-        url = f'{Solcast.base_url}{uri}'
+        url = f'{PySolcast.base_url}{uri}'
         payload = {'format': 'json'}
         if params:
             payload = {**payload, **params}
@@ -39,16 +39,15 @@ class Solcast:  # pylint: disable=too-few-public-methods
             raise RateLimitExceeded(
                 f"Rate limit exceeded. Reset time: {_get_response.headers.get('x-rate-limit-reset')}")  # pylint: disable=line-too-long
         if _get_response.status_code == 400:
-            self.logger.info(  # pylint: disable=logging-format-interpolation
-                f'Validation error: {_get_response.headers}')
+            self.logger.info('Validation error: %s', _get_response.headers)
             raise ValidationError('Validation error')
         if _get_response.status_code == 404:
-            self.logger.info(f'Site error: {_get_response.headers}')  # pylint: disable=logging-format-interpolation
+            self.logger.info('Site error: %s', _get_response.headers)
             raise SiteError('Site error')
 
     def _post_data(self, uri: str, data: dict) -> dict:  # pylint: disable=inconsistent-return-statements
         """Post data to API."""
-        url = f'{Solcast.base_url}{uri}'
+        url = f'{PySolcast.base_url}{uri}'
         try:
             _post_response = post(url, data=data)
         except (requests.exceptions.ConnectionError, requests.exceptions.Timeout) as error:

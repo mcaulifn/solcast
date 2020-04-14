@@ -12,16 +12,20 @@ with open('HISTORY.rst') as history_file:
 
 requirements = []
 
-setup_requirements = ['pytest-runner', ]
-
 test_requirements = ['pytest>=3', ]
+
+
+def local_scheme(version):
+    print(version)
+    return ''
+
 
 setup(
     author="Nathaniel McAuliffe",
     author_email='nathanielmcauliffe@hotmail.com',
     python_requires='>=3.7',
     classifiers=[
-        'Development Status :: 2 - Pre-Alpha',
+        'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
         'Natural Language :: English',
         'Programming Language :: Python :: 3',
@@ -33,12 +37,17 @@ setup(
     long_description=readme + '\n\n' + history,
     include_package_data=True,
     keywords='solcast',
-    name='solcast',
-    packages=find_packages(include=['solcast', 'solcast.*']),
-    setup_requires=setup_requirements,
+    name='pysolcast',
+    packages=find_packages(include=['pysolcast', 'pysolcast.*']),
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/mcaulifn/solcast',
+    use_scm_version={
+        'local_scheme': local_scheme,
+        'write_to': 'pysolcast/version.py',
+        'write_to_template': '__version__ = "{version}"\n',
+        'tag_regex': r'^(?P<prefix>v)?(?P<version>[^\+]+)(?P<suffix>.*)?$'
+    },
     version='1.0.0',
     zip_safe=False,
 )

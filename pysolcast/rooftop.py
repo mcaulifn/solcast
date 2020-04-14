@@ -1,8 +1,8 @@
 """Rooftop Site Module."""
-from solcast.base import Solcast, parse_date_time
+from pysolcast.base import PySolcast, parse_date_time
 
 
-class RooftopSite(Solcast):
+class RooftopSite(PySolcast):
     """Class for interacting with Rooftop sites.
 
     Refer to https://docs.solcast.com.au/#rooftop-sites for more information.

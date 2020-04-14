@@ -2,8 +2,8 @@
 
 import responses
 import pytest
-from solcast.rooftop import RooftopSite
-from solcast.exceptions import ValidationError, SiteError, RateLimitExceeded
+from pysolcast.rooftop import RooftopSite
+from pysolcast.exceptions import ValidationError, SiteError, RateLimitExceeded
 
 BASE_URL = 'https://api.solcast.com.au'
 ROOFTOP_URI = 'rooftop_sites'
@@ -226,7 +226,6 @@ def test_get_estimated_actuals_400():
     resource_id = '1234-1234'
     endpoint = 'estimated_actuals'
     expected_url = f'{BASE_URL}/{ROOFTOP_URI}/{resource_id}/{endpoint}'
-    print(expected_url)
 
     responses.add(
         responses.GET, expected_url, status=400

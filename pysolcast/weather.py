@@ -1,8 +1,8 @@
 """Weather site Module."""
-from solcast.base import Solcast
+from pysolcast.base import PySolcast
 
 
-class WeatherSite(Solcast):
+class WeatherSite(PySolcast):
     """Class for interacting with weather sites.
 
     Refer to https://docs.solcast.com.au/#weather-site for more information.

@@ -1,9 +1,9 @@
 """World Solar Radiation Module."""
 import logging
-from solcast.base import Solcast
+from pysolcast.base import PySolcast
 
 
-class World(Solcast):
+class World(PySolcast):
     """Class for interacting with world solar radiation endpoint.
 
     Refer to https://docs.solcast.com.au/#world-solar-radiation-data for more information.
