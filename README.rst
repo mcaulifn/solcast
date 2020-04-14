@@ -1,5 +1,5 @@
 =======
-solcast
+pysolcast
 =======
 
 | |Build Status| |CodeCov|
@@ -16,7 +16,7 @@ Basic Usage
 
 .. code-block:: python
 
-    from solcast import RooftopSite
+    from pysolcast import RooftopSite
     
     site = RooftopSite(api_key, resource_id)
     forecasts = site.get_forecasts()

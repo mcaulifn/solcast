@@ -2,8 +2,8 @@
 
 import responses
 import pytest
-from solcast.world import World
-from solcast.exceptions import ValidationError, SiteError, RateLimitExceeded
+from pysolcast.world import World
+from pysolcast.exceptions import ValidationError, SiteError, RateLimitExceeded
 
 BASE_URL = 'https://api.solcast.com.au'
 WORLD_URI = '/world_radiation/'

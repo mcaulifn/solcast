@@ -1,1 +1,1 @@
-"""Unit test package for solcast."""
+"""Unit test package for pysolcast."""

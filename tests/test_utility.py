@@ -2,8 +2,8 @@
 
 import responses
 import pytest
-from solcast.utility import UtilitySite
-from solcast.exceptions import ValidationError, SiteError, RateLimitExceeded
+from pysolcast.utility import UtilitySite
+from pysolcast.exceptions import ValidationError, SiteError, RateLimitExceeded
 
 BASE_URL = 'https://api.solcast.com.au'
 UTILTY_URI = 'utility_scale_sites'

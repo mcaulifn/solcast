@@ -1,8 +1,8 @@
 """Utility Site Module."""
-from solcast.base import Solcast
+from pysolcast.base import PySolcast
 
 
-class UtilitySite(Solcast):
+class UtilitySite(PySolcast):
     """Class for interacting with utility sites.
 
     Refer to https://docs.solcast.com.au/#utility-scale-sites for more information.

@@ -1,12 +1,10 @@
 pip
 bump2version
-flake8
 tox
 pytest
 pytest-cov
 sphinx-autodoc-typehints
 Sphinx
-twine
 autopep8
 rope
 pydocstyle
@@ -15,3 +13,4 @@ anyconfig
 mock
 pylint
 responses
+setuptools_scm

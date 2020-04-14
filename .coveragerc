@@ -2,6 +2,11 @@
 omit = 
     */tests*
 
+[xml]
+
+[html]
+
 [report]
 exclude_lines =
     pass
+show_missing = True
