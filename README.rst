@@ -1,6 +1,6 @@
-=======
+=========
 pysolcast
-=======
+=========
 
 | |Build Status| |CodeCov|
 
