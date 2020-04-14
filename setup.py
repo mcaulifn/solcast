@@ -3,7 +3,6 @@
 """The setup script."""
 
 from setuptools import setup, find_packages
-import setuptools_scm
 
 with open('README.rst') as readme_file:
     readme = readme_file.read()
@@ -18,9 +17,7 @@ test_requirements = ['pytest>=3', ]
 
 def local_scheme(version):
     print(version)
-    if version.branch == 'master' and not version.dirty:
-        return ''
-    return setuptools_scm.version.get_local_node_and_date(version)
+    return ''
 
 
 setup(
@@ -47,7 +44,7 @@ setup(
     url='https://github.com/mcaulifn/solcast',
     use_scm_version={
         'local_scheme': local_scheme,
-        'write_to': '',
+        'write_to': 'pysolcast/version.py',
         'write_to_template': '__version__ = "{version}"\n',
         'tag_regex': r'^(?P<prefix>v)?(?P<version>[^\+]+)(?P<suffix>.*)?$'
     },
