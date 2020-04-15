@@ -1,15 +1,21 @@
-name: Upload Python Package
+name: PyPi Release
 
 on:
   push:
-    branches:
-      - master
+    #branches:
+    #  - master
+    tags:
+      - "v*"
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Fetch history and tags
+        run: |
+          git fetch --prune --unshallow
+          git fetch --depth=1 origin +refs/tags/*:refs/tags/*
       - uses: actions/setup-python@v1
         with:
           python-version: 3.x
