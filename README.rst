@@ -2,7 +2,7 @@
 pysolcast
 =========
 
-| |Build Status| |CodeCov|
+| |Build Status| |CodeCov| |pypi| |codeclimate|
 
 
 
@@ -32,3 +32,10 @@ Full API Documentation_.
 
 .. |CodeCov| image:: https://codecov.io/gh/mcaulifn/solcast/branch/master/graph/badge.svg?token=04NTIH61T2
   :target: https://codecov.io/gh/mcaulifn/solcast
+
+.. |pypi| image:: https://badge.fury.io/py/pysolcast.svg
+    :target: https://badge.fury.io/py/pysolcast
+
+.. |codeclimate| image:: https://api.codeclimate.com/v1/badges/670e0a037d968b173393/maintainability
+   :target: https://codeclimate.com/github/mcaulifn/solcast/maintainability
+   :alt: Maintainability
