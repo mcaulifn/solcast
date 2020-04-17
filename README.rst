@@ -16,7 +16,7 @@ Basic Usage
 
 .. code-block:: python
 
-    from pysolcast import RooftopSite
+    from pysolcast.rooftop import RooftopSite
     
     site = RooftopSite(api_key, resource_id)
     forecasts = site.get_forecasts()
