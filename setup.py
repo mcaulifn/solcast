@@ -48,6 +48,5 @@ setup(
         'write_to_template': '__version__ = "{version}"\n',
         'tag_regex': r'^(?P<prefix>v)?(?P<version>[^\+]+)(?P<suffix>.*)?$'
     },
-    version='1.0.0',
     zip_safe=False,
 )
