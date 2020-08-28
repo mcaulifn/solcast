@@ -23,7 +23,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install tox
           tox -e py
-      - uses: codecov/codecov-action@v1.0.12
+      - uses: codecov/codecov-action@v1.0.13
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           file: ./coverage.xml
