@@ -2,6 +2,6 @@
 Usage
 =====
 
-To use solcast in a project::
+To use pysolcast in a project::
 
-    import solcast
+    import pysolcast

@@ -14,6 +14,9 @@ Client library for interacting with the Solcast API
 Basic Usage
 -----------
 
+Get Forecasts
+~~~~~~~~~~~~~
+
 .. code-block:: python
 
     from pysolcast.rooftop import RooftopSite
@@ -21,6 +24,18 @@ Basic Usage
     site = RooftopSite(api_key, resource_id)
     forecasts = site.get_forecasts()
 
+Post Measurements
+~~~~~~~~~~~~~~~~~
+.. code-block:: python
+
+  measurement = {
+    'measurement': {
+      'period_end': '2021-01-25T17:45:00.0000000Z', 
+      'period': 'PT15M', 
+      'total_power': 0.388
+    }
+  }
+  results = site.post_measurements(measurement)
 
 Full API Documentation_.
 

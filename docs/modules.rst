@@ -1,7 +1,7 @@
-solcast
+pysolcast
 =======
 
 .. toctree::
    :maxdepth: 4
 
-   solcast
+   pysolcast
