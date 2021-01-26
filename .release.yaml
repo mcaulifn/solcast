@@ -1,0 +1,34 @@
+name: semantic-versioning
+version: 1.0.0
+description: Semantic release
+repository:
+  type: git
+  url: https://github.com/mcaulifn/solcast.git
+keywords: []
+author: 'Nathaniel McAuliffe'
+license: ISC
+devDependencies:
+  semantic-release: ^17.1.1
+plugins:
+  - - '@semantic-release/commit-analyzer'
+    - preset: angular
+      releaseRules:
+        - breaking: true
+          release: major
+        - type: breaking
+          release: major
+        - type: docs
+          release: patch
+        - type: refactor
+          release: patch
+        - type: no-release
+          release: false
+  - '@semantic-release/release-notes-generator'
+  - '@semantic-release/github'
+release:
+  branches:
+    - main
+    - master
+branches:
+    - main
+    - master
