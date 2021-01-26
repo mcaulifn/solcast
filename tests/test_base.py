@@ -49,6 +49,7 @@ def test_get_data_200():
 
     # Assert
     assert response == json.loads(expected_response)
+    assert responses.calls[0].request.headers['Authorization'] == 'Basic MTIzNDU6'
 
 
 @responses.activate
@@ -74,6 +75,7 @@ def test_get_data_timeout():
         obj._get_data(uri)  # pylint: disable=protected-access
 
     # Assert
+    assert responses.calls[0].request.headers['Authorization'] == 'Basic MTIzNDU6'
 
 
 @responses.activate
@@ -108,6 +110,7 @@ def test_post_data():
     # Assert
     assert isinstance(measurement_response, dict)
     assert measurement_response == json.loads(measurement_single)
+    assert responses.calls[0].request.headers['Authorization'] == 'Basic MTIzNDU6'
 
 
 @responses.activate
@@ -141,3 +144,4 @@ def test_post_data_timeout():
         obj._post_data(uri, measurement_single)  # pylint: disable=protected-access
 
     # Assert
+    assert responses.calls[0].request.headers['Authorization'] == 'Basic MTIzNDU6'

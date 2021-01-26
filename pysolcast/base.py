@@ -49,7 +49,7 @@ class PySolcast:  # pylint: disable=too-few-public-methods
         """Post data to API."""
         url = f'{PySolcast.base_url}{uri}'
         try:
-            _post_response = post(url, data=data)
+            _post_response = post(url, json=data, auth=(self.api_key, ''))
         except (requests.exceptions.ConnectionError, requests.exceptions.Timeout) as error:
             self.logger.info(error)
             raise error
