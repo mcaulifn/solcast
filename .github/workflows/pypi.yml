@@ -1,11 +1,9 @@
 name: PyPi Release
 
 on:
-  push:
-    #branches:
-    #  - master
-    tags:
-      - "v*"
+  release:
+    types: [created]
+  workflow_dispatch:
 
 jobs:
   deploy:
