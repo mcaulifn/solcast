@@ -9,7 +9,7 @@ if "%SPHINXBUILD%" == "" (
 )
 set SOURCEDIR=.
 set BUILDDIR=_build
-set SPHINXPROJ=solcast
+set SPHINXPROJ=pysolcast
 
 if "%1" == "" goto help
 

@@ -1,4 +1,4 @@
-Welcome to solcast's documentation!
+Welcome to pysolcast's documentation!
 ======================================
 
 .. toctree::

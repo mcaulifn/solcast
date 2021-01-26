@@ -1,4 +1,4 @@
-* solcast version:
+* pysolcast version:
 * Python version:
 * Operating System:
 

@@ -1,53 +1,53 @@
-solcast package
+pysolcast package
 ===============
 
 Submodules
 ----------
 
-solcast.base module
+pysolcast.base module
 -------------------
 
-.. automodule:: solcast.base
+.. automodule:: pysolcast.base
    :members:
    :undoc-members:
    :show-inheritance:
 
-solcast.exceptions module
+pysolcast.exceptions module
 -------------------------
 
-.. automodule:: solcast.exceptions
+.. automodule:: pysolcast.exceptions
    :members:
    :undoc-members:
    :show-inheritance:
 
-solcast.rooftop module
+pysolcast.rooftop module
 ----------------------
 
-.. automodule:: solcast.rooftop
+.. automodule:: pysolcast.rooftop
    :members:
    :undoc-members:
    :show-inheritance:
 
-solcast.utility module
+pysolcast.utility module
 ----------------------
 
-.. automodule:: solcast.utility
+.. automodule:: pysolcast.utility
    :members:
    :undoc-members:
    :show-inheritance:
 
-solcast.weather module
+pysolcast.weather module
 ----------------------
 
-.. automodule:: solcast.weather
+.. automodule:: pysolcast.weather
    :members:
    :undoc-members:
    :show-inheritance:
 
-solcast.world module
+pysolcast.world module
 --------------------
 
-.. automodule:: solcast.world
+.. automodule:: pysolcast.world
    :members:
    :undoc-members:
    :show-inheritance:
@@ -56,7 +56,7 @@ solcast.world module
 Module contents
 ---------------
 
-.. automodule:: solcast
+.. automodule:: pysolcast
    :members:
    :undoc-members:
    :show-inheritance:
