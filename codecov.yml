@@ -20,4 +20,4 @@ comment:
   require_changes: no
 
 ignore:
-  - "solcast/version.py"
+  - "pysolcast/version.py"
