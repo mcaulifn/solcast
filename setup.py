@@ -15,11 +15,6 @@ requirements = []
 test_requirements = ['pytest>=3', ]
 
 
-def local_scheme(version):
-    print(version)
-    return ''
-
-
 setup(
     author="Nathaniel McAuliffe",
     author_email='nathanielmcauliffe@hotmail.com',
@@ -42,11 +37,5 @@ setup(
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/mcaulifn/solcast',
-    use_scm_version={
-        'local_scheme': local_scheme,
-        'write_to': 'pysolcast/version.py',
-        'write_to_template': '__version__ = "{version}"\n'
-    },
-    version_scheme='release-branch-semver',
     zip_safe=False,
 )
