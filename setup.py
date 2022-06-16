@@ -45,8 +45,8 @@ setup(
     use_scm_version={
         'local_scheme': local_scheme,
         'write_to': 'pysolcast/version.py',
-        'write_to_template': '__version__ = "{version}"\n',
-        'tag_regex': r'^(?P<prefix>v)?(?P<version>[^\+]+)(?P<suffix>.*)?$'
+        'write_to_template': '__version__ = "{version}"\n'
     },
+    version_scheme='release-branch-semver',
     zip_safe=False,
 )
