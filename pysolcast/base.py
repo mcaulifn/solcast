@@ -19,16 +19,16 @@ class PySolcast:  # pylint: disable=too-few-public-methods
         self.resource_id = resource_id
         self.logger = logging.getLogger()
 
-    def _get_data(self, uri: str, params: dict = None) -> dict:  # pylint: disable=inconsistent-return-statements
+    def _get_data(self, uri: str, params: dict = None, timeout=60) -> dict:  # pylint: disable=inconsistent-return-statements
         """Get data from API."""
         url = f'{PySolcast.base_url}{uri}'
         payload = {'format': 'json'}
         if params:
             payload = {**payload, **params}
         try:
-            _get_response = get(url, auth=(self.api_key, ''), params=payload)
+            _get_response = get(url, auth=(self.api_key, ''), params=payload, timeout=timeout)
         except (requests.exceptions.ConnectionError, requests.exceptions.Timeout) as error:
-            self.logger.info(f'Error getting data: {error}')  # pylint: disable=logging-format-interpolation
+            self.logger.info(f'Error getting data: {error}')  # pylint: disable=logging-fstring-interpolation
             raise error
         if _get_response.status_code == 200:
             return _get_response.json()
@@ -45,11 +45,11 @@ class PySolcast:  # pylint: disable=too-few-public-methods
             self.logger.info('Site error: %s', _get_response.headers)
             raise SiteError('Site error')
 
-    def _post_data(self, uri: str, data: dict) -> dict:  # pylint: disable=inconsistent-return-statements
+    def _post_data(self, uri: str, data: dict, timeout=60) -> dict:  # pylint: disable=inconsistent-return-statements
         """Post data to API."""
         url = f'{PySolcast.base_url}{uri}'
         try:
-            _post_response = post(url, json=data, auth=(self.api_key, ''))
+            _post_response = post(url, json=data, auth=(self.api_key, ''), timeout=timeout)
         except (requests.exceptions.ConnectionError, requests.exceptions.Timeout) as error:
             self.logger.info(error)
             raise error
