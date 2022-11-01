@@ -11,7 +11,7 @@ class World(PySolcast):
 
     base_uri = 'world_radiation'
 
-    def __init__(self, api_key):
+    def __init__(self, api_key):  # pylint: disable=super-init-not-called
         self.api_key = api_key
         self.logger = logging.getLogger()
 
