@@ -7,13 +7,9 @@ updates:
       interval: "weekly"
     assignees:
       - "mcaulifn"
-    commit-message:
-      prefix: "pip prod"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "weekly"
     assignees:
       - "mcaulifn"
-    commit-message:
-      prefix: "gh Actions"
