@@ -5,3 +5,16 @@ requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
 local_scheme = "no-local-version"
 version_scheme =  "release-branch-semver"
 write_to = "pysolcast/version.py"
+
+[tool.pytest.ini_options]
+addopts = "--ignore=pysolcast/version.py"
+
+[tool.coverage.run]
+omit = ["pysolcast/version.py"]
+relative_files = true
+
+[tool.pylint."message_control"]
+disable = ["logging-fstring-interpolation"]
+
+[tool.pylint.master]
+ignore-patterns = "version.py"
