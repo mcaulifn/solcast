@@ -3,14 +3,14 @@ from pysolcast.base import PySolcast, parse_date_time
 
 
 class RooftopSite(PySolcast):
-    """Class for interacting with Rooftop sites.
+    """Class for interacting with Legacy Rooftop sites.
 
-    Refer to https://docs.solcast.com.au/#rooftop-sites for more information.
+    Refer to https://docs.solcast.com.au/#58ca9bc0-27d4-4418-937f-03986331f01d for more information.
     """
 
     base_uri = 'rooftop_sites'
 
-    def get_forecasts(self) -> dict:
+    def get_forecasts(self, params: dict = None) -> dict:
         """Get forecasts data for site.
 
         :return: forecasts:
@@ -18,9 +18,9 @@ class RooftopSite(PySolcast):
         :raises SiteError:
         """
         endpoint = 'forecasts'
-        return self._get_data(self._create_uri(self.base_uri, endpoint))
+        return self._get_data(self._create_uri(self.base_uri, endpoint), params)
 
-    def get_forecasts_parsed(self) -> dict:
+    def get_forecasts_parsed(self, params: dict = None) -> dict:
         """Get forecasts data for site.
 
         :return: forecasts: Date is parsed as a datetime object.
@@ -28,7 +28,7 @@ class RooftopSite(PySolcast):
         :raises SiteError:
         """
         endpoint = 'forecasts'
-        forecasts = self._get_data(self._create_uri(self.base_uri, endpoint))
+        forecasts = self._get_data(self._create_uri(self.base_uri, endpoint), params)
         return parse_date_time(forecasts, endpoint)
 
     def get_estimated_actuals(self) -> dict:
