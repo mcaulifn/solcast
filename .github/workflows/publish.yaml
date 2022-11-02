@@ -1,4 +1,4 @@
-name: PyPi Release
+name: Publish
 
 on:
   release:
@@ -21,7 +21,7 @@ jobs:
           pip install build
           python -m build
       - name: Publish distribution 📦 to Test PyPI
-        uses: pypa/gh-action-pypi-publish@master
+        uses: pypa/gh-action-pypi-publish@v1.5.1
         with:
           password: ${{ secrets.test_pypi_password }}
           repository_url: https://test.pypi.org/legacy/

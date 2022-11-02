@@ -42,10 +42,10 @@ Full API Documentation_.
 .. _Documentation: https://docs.solcast.com.au
 
 
-.. |Build Status| image:: https://github.com/mcaulifn/solcast/workflows/PyPi%20Release/badge.svg
+.. |Build Status| image:: https://github.com/mcaulifn/solcast/workflows/Publish/badge.svg
    :target: https://github.com/mcaulifn/solcast
 
-.. |CodeCov| image:: https://codecov.io/gh/mcaulifn/solcast/branch/master/graph/badge.svg?token=04NTIH61T2
+.. |CodeCov| image:: https://codecov.io/gh/mcaulifn/solcast/branch/main/graph/badge.svg?token=04NTIH61T2
   :target: https://codecov.io/gh/mcaulifn/solcast
 
 .. |pypi| image:: https://badge.fury.io/py/pysolcast.svg
