@@ -29,7 +29,7 @@
                 "sha256:35824b4c3a97115964b408844d64aa14db1cc518f6562e8d7261699d1350a9e3",
                 "sha256:4ad3232f5e926d6718ec31cfc1fcadfde020920e278684144551c91769c7bc18"
             ],
-            "index": "pypi",
+            "markers": "python_version >= '3.6'",
             "version": "==2022.12.7"
         },
         "charset-normalizer": {
@@ -37,7 +37,7 @@
                 "sha256:5a3d016c7c547f69d6f81fb0db9449ce888b418b5b9952cc5e6e66843e9dd845",
                 "sha256:83e9a75d1911279afd89352c68b45348559d1fc0506b054b346651b5e7fee29f"
             ],
-            "markers": "python_full_version >= '3.6.0'",
+            "markers": "python_version >= '3.6'",
             "version": "==2.1.1"
         },
         "idna": {
@@ -165,7 +165,7 @@
                 "sha256:35824b4c3a97115964b408844d64aa14db1cc518f6562e8d7261699d1350a9e3",
                 "sha256:4ad3232f5e926d6718ec31cfc1fcadfde020920e278684144551c91769c7bc18"
             ],
-            "index": "pypi",
+            "markers": "python_version >= '3.6'",
             "version": "==2022.12.7"
         },
         "charset-normalizer": {
@@ -173,7 +173,7 @@
                 "sha256:5a3d016c7c547f69d6f81fb0db9449ce888b418b5b9952cc5e6e66843e9dd845",
                 "sha256:83e9a75d1911279afd89352c68b45348559d1fc0506b054b346651b5e7fee29f"
             ],
-            "markers": "python_full_version >= '3.6.0'",
+            "markers": "python_version >= '3.6'",
             "version": "==2.1.1"
         },
         "coverage": {
@@ -500,6 +500,9 @@
             "version": "==4.0.0"
         },
         "pytoolconfig": {
+            "extras": [
+                "global"
+            ],
             "hashes": [
                 "sha256:5e1a246f77970ddb5f3d8d06fbf162424b8a1adfc22c2eb51826b383bf293d1e",
                 "sha256:7befe396f91b2593345b829a7745c7f459f04fc6c53fc86c0b771945446a7bd1"
@@ -524,11 +527,11 @@
         },
         "rope": {
             "hashes": [
-                "sha256:27c122389fa5cdffa00c24aa6c63704e0933650dbc7d4d4002537947d6cfb7b7",
-                "sha256:7d5a34235ff4a242b71f249b5617a9c54112e145ba4701a41e2f4f96942e5899"
+                "sha256:2b4c6879422672f13958a6a36f063d1823d3ba9f0af933e7944293a5a33c8afc",
+                "sha256:931aea154365556a7daac01cbcece0c9c118755bfff7c65ab242b69585167eca"
             ],
             "index": "pypi",
-            "version": "==1.4.0"
+            "version": "==1.6.0"
         },
         "setuptools": {
             "hashes": [
@@ -630,7 +633,7 @@
                 "sha256:939de3e7a6161af0c887ef91b7d41a53e7c5a1ca976325f429cb46ea9bc30ecc",
                 "sha256:de526c12914f0c550d15924c62d72abc48d6fe7364aa87328337a31007fe8a4f"
             ],
-            "markers": "python_version >= '3.7'",
+            "markers": "python_version < '3.11'",
             "version": "==2.0.1"
         },
         "tomlkit": {
