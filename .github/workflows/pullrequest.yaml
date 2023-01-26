@@ -19,9 +19,9 @@ jobs:
           - "3.10"
           - 3.11
     steps:
-      - uses: actions/checkout@v3.1.0
+      - uses: actions/checkout@v3.3.0
       - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v4.3.0
+        uses: actions/setup-python@v4.4.0
         with:
           python-version: "${{ matrix.python-version }}"
       - name: Run tox
@@ -41,12 +41,12 @@ jobs:
     needs: [build]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3.1.0
+      - uses: actions/checkout@v3.3.0
       - name: Fetch history and tags
         run: |
           git fetch --prune --unshallow
           git fetch --depth=1 origin +refs/tags/*:refs/tags/*
-      - uses: actions/setup-python@v4.3.0
+      - uses: actions/setup-python@v4.4.0
         with:
           python-version: 3.x
       - name: Build
@@ -55,7 +55,7 @@ jobs:
           pip install build
           python -m build
       - name: Publish distribution 📦 to Test PyPI
-        uses: pypa/gh-action-pypi-publish@v1.5.1
+        uses: pypa/gh-action-pypi-publish@v1.6.4
         with:
           user: __token__
           password: ${{ secrets.test_pypi_password }}
