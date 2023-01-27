@@ -757,11 +757,11 @@
         },
         "sphinx-autodoc-typehints": {
             "hashes": [
-                "sha256:38a227378e2bc15c84e29af8cb1d7581182da1107111fd1c88b19b5eb7076205",
-                "sha256:ea55b3cc3f485e3a53668bcdd08de78121ab759f9724392fdb5bf3483d786328"
+                "sha256:68e7136403ca67359d7beaab4d358cea518623abe749cc4e0639609aebf2f5c7",
+                "sha256:b8d15c05ced5e9fbe46a6dfd2ff194b6e508a64c9229bc7eaa08ee7089b9e6d3"
             ],
             "index": "pypi",
-            "version": "==1.19.5"
+            "version": "==1.21.8"
         },
         "sphinxcontrib-applehelp": {
             "hashes": [
