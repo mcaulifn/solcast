@@ -1,20 +1,35 @@
+[tool.poetry]
+name = "solcast"
+version = "1.0.15"
+description = ""
+authors = ["Nathaniel McAuliffe <nathanielmcauliffe@hotmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+anyconfig = "0.13.0"
+responses = "0.22.0"
+isodate = "0.6.1"
+
+[tool.poetry.group.dev.dependencies]
+bump2version = "1.0.1"
+tox = "3.27.0"
+pytest = "7.2.1"
+pytest-cov = "4.0.0"
+sphinx-autodoc-typehints = "1.19.5"
+autopep8 = "2.0.2"
+rope = "1.6.0"
+pydocstyle = "6.1.1"
+pycodestyle = "2.10.0"
+mock = "5.1.0"
+pylint = "2.15.10"
+setuptools-scm = "7.1.0"
+Sphinx = "5.3.0"
+
+
 [build-system]
-requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
 
-[tool.setuptools_scm]
-local_scheme = "no-local-version"
-version_scheme =  "release-branch-semver"
-write_to = "pysolcast/version.py"
-
-[tool.pytest.ini_options]
-addopts = "--ignore=pysolcast/version.py"
-
-[tool.coverage.run]
-omit = ["pysolcast/version.py"]
-relative_files = true
-
-[tool.pylint."message_control"]
-disable = ["logging-fstring-interpolation"]
-
-[tool.pylint.master]
-ignore-patterns = "version.py"
+[tool.black]
+max-line-length = 120
