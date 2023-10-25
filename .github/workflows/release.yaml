@@ -8,26 +8,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      - id: release
+        uses: google-github-actions/release-please-action@v3.7.12
         with:
-          fetch-depth: 0
-      - name: Setup Node
-        uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 # v4
-        with:
-          node-version: 18
-      - name: Run Semantic Release
-        run: |
-          npm install semantic-release semantic-release/exec
-          npx semantic-release --debug --no-ci
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          command: manifest
       - name: Trigger Publish
-        uses: actions/github-script@d7906e4ad0b1822421a7e6a35d5ca353c962f410 # v6
+        uses: actions/github-script@v6
         with:
           script: |
             github.rest.actions.createWorkflowDispatch({
               owner: context.repo.owner,
               repo: context.repo.repo,
               workflow_id: 'publish.yaml',
-              ref: 'v${{ env.RELEASE_VERSION }}',
+              ref: '${{ steps.release.outputs.tag_name }}',
             })
