@@ -19,7 +19,7 @@ jobs:
           - "3.10"
           - 3.11
     steps:
-      - uses: actions/checkout@v3.3.0
+      - uses: actions/checkout@v4.1.1
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v4.5.0
         with:
@@ -29,7 +29,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install tox
           tox -e py
-      - uses: codecov/codecov-action@v3.1.1
+      - uses: codecov/codecov-action@v3.1.4
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           file: ./coverage.xml
@@ -41,7 +41,7 @@ jobs:
     needs: [build]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3.3.0
+      - uses: actions/checkout@v4.1.1
       - name: Fetch history and tags
         run: |
           git fetch --prune --unshallow
