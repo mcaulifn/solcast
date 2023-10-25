@@ -6,7 +6,7 @@ authors = ["Nathaniel McAuliffe <nathanielmcauliffe@hotmail.com>"]
 readme = "README.rst"
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = ">=3.8"
 anyconfig = "0.13.0"
 responses = "0.22.0"
 isodate = "0.6.1"
