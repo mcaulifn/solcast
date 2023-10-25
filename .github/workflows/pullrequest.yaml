@@ -55,7 +55,7 @@ jobs:
           pip install build
           python -m build
       - name: Publish distribution 📦 to Test PyPI
-        uses: pypa/gh-action-pypi-publish@c7f29f7adef1a245bd91520e94867e5c6eedddcc # v1.6.4
+        uses: pypa/gh-action-pypi-publish@b7f401de30cb6434a1e19f805ff006643653240e # v1.8.10
         with:
           user: __token__
           password: ${{ secrets.test_pypi_password }}
