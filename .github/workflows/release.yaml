@@ -12,7 +12,8 @@ jobs:
         uses: google-github-actions/release-please-action@v3.7.12
         with:
           command: manifest
-      - name: Trigger Publish
+      - if: steps.release.outputs.release_created
+        name: Trigger Publish
         uses: actions/github-script@v6
         with:
           script: |
