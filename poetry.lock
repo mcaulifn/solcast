@@ -780,21 +780,22 @@ tests = ["coverage (>=6.0.0)", "flake8", "mypy", "pytest (>=7.0.0)", "pytest-asy
 
 [[package]]
 name = "rope"
-version = "1.6.0"
+version = "1.10.0"
 description = "a python refactoring library..."
 optional = false
-python-versions = ">=3.7"
+python-versions = ">=3.8"
 files = [
-    {file = "rope-1.6.0-py3-none-any.whl", hash = "sha256:2b4c6879422672f13958a6a36f063d1823d3ba9f0af933e7944293a5a33c8afc"},
-    {file = "rope-1.6.0.tar.gz", hash = "sha256:931aea154365556a7daac01cbcece0c9c118755bfff7c65ab242b69585167eca"},
+    {file = "rope-1.10.0-py3-none-any.whl", hash = "sha256:4e9f06d7296708a8a6518590c49352c99394053d91fde5b1d74c9ffc85c76d5b"},
+    {file = "rope-1.10.0.tar.gz", hash = "sha256:14bfcc7dfea69fa32c53db0667e86e321ef059de555c7f8101a0cb91c8d85a55"},
 ]
 
 [package.dependencies]
 pytoolconfig = {version = ">=1.2.2", extras = ["global"]}
 
 [package.extras]
-dev = ["build (>=0.7.0)", "pytest (>=7.0.1)", "pytest-timeout (>=2.1.0)"]
+dev = ["build (>=0.7.0)", "pre-commit (>=2.20.0)", "pytest (>=7.0.1)", "pytest-timeout (>=2.1.0)"]
 doc = ["pytoolconfig[doc]", "sphinx (>=4.5.0)", "sphinx-autodoc-typehints (>=1.18.1)", "sphinx-rtd-theme (>=1.0.0)"]
+release = ["pip-tools (>=6.12.1)", "toml (>=0.10.2)", "twine (>=4.0.2)"]
 
 [[package]]
 name = "setuptools"
@@ -1133,4 +1134,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.8"
-content-hash = "e27243b3f9e0368d20375cc01c86c009c85b2bc4cccb67b5e91c6944928a76db"
+content-hash = "d09f8802907967b3e02e4fd55067ad3804005343844120a39c9050d26a5b5440"
