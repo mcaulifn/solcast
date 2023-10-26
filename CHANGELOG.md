@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0](https://github.com/mcaulifn/solcast/compare/v1.0.18...v2.0.0) (2023-10-26)
+
+
+### ⚠ BREAKING CHANGES
+
+* **runtime:** Remove support for Python 3.8 ([#190](https://github.com/mcaulifn/solcast/issues/190))
+
+### Features
+
+* **runtime:** Remove support for Python 3.8 ([#190](https://github.com/mcaulifn/solcast/issues/190)) ([f7d8a86](https://github.com/mcaulifn/solcast/commit/f7d8a86246076abe5314fc97c292025576a33783))
+
 ## [1.0.18](https://github.com/mcaulifn/solcast/compare/v1.0.17...v1.0.18) (2023-10-26)
 
 
