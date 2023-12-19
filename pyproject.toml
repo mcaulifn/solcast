@@ -22,7 +22,7 @@ rope = "1.11.0"
 pydocstyle = "6.3.0"
 pycodestyle = "2.11.1"
 mock = "5.1.0"
-pylint = "3.0.2"
+pylint = "3.0.3"
 setuptools-scm = "8.0.4"
 Sphinx = "7.2.6"
 
