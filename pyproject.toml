@@ -28,7 +28,7 @@ Sphinx = "7.2.6"
 
 
 [build-system]
-requires = ["poetry-core"]
+requires = ["poetry-core >= 1.9.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.black]
