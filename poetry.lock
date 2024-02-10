@@ -13,23 +13,19 @@ files = [
 
 [[package]]
 name = "anyconfig"
-version = "0.13.0"
+version = "0.14.0"
 description = "Library provides common APIs to load and dump configuration files in various formats"
 optional = false
 python-versions = "*"
 files = [
-    {file = "anyconfig-0.13.0-py2.py3-none-any.whl", hash = "sha256:17cb189938d6cda4d21a2dabcd63db86658d2556e767dfd4835b1011544a1f8e"},
-    {file = "anyconfig-0.13.0.tar.gz", hash = "sha256:03ff2e1762af388fbbbed1c1ab7f9f1ec006a91da7db3a68b963da6e7795d2ac"},
+    {file = "anyconfig-0.14.0.tar.gz", hash = "sha256:2cdf54af5dae8e91743ded82c54ed9d8aaefa3a9722f5d45e9b5f74b603e014d"},
 ]
-
-[package.dependencies]
-setuptools = "*"
 
 [package.extras]
 query = ["jmespath"]
 schema = ["jsonschema"]
 template = ["Jinja2"]
-toml = ["toml"]
+toml = ["tomli", "tomli-w"]
 yaml = ["pyyaml"]
 
 [[package]]
@@ -1207,4 +1203,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.9"
-content-hash = "d1bf06e21091c48f320c40967a33b8e40b1c78d57ef2029b884422be04457506"
+content-hash = "596a97189df89a570ffc8150058f19277409f2f846a672d9273e679adfee466a"

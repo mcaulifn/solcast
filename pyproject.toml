@@ -7,7 +7,7 @@ readme = "README.rst"
 
 [tool.poetry.dependencies]
 python = ">=3.9"
-anyconfig = "0.13.0"
+anyconfig = "0.14.0"
 responses = "0.24.1"
 isodate = "0.6.1"
 
