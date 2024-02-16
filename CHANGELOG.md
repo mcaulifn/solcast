@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.0.1](https://github.com/mcaulifn/solcast/compare/v2.0.0...v2.0.1) (2024-02-16)
+
+
+### Bug Fixes
+
+* **deps:** Add missing requests package ([#221](https://github.com/mcaulifn/solcast/issues/221)) ([09d1f4a](https://github.com/mcaulifn/solcast/commit/09d1f4af33940efab52db90adb2fb1eb811e6198))
+* **deps:** update dependency anyconfig to v0.14.0 ([#211](https://github.com/mcaulifn/solcast/issues/211)) ([4c372b5](https://github.com/mcaulifn/solcast/commit/4c372b53939c4af1921e631b3ed133d2b23ecdc3))
+* **deps:** update dependency responses to v0.24.0 ([#193](https://github.com/mcaulifn/solcast/issues/193)) ([5a2ff83](https://github.com/mcaulifn/solcast/commit/5a2ff839a542def771857214a702fed763f21969))
+* **deps:** update dependency responses to v0.24.1 ([#200](https://github.com/mcaulifn/solcast/issues/200)) ([6ce4099](https://github.com/mcaulifn/solcast/commit/6ce40993f262076a00d88b7d6135b582a930a8df))
+
 ## [2.0.0](https://github.com/mcaulifn/solcast/compare/v1.0.18...v2.0.0) (2023-10-26)
 
 
