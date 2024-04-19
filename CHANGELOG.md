@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.2](https://github.com/mcaulifn/solcast/compare/v2.0.1...v2.0.2) (2024-04-19)
+
+
+### Bug Fixes
+
+* **deps:** Poetry re-lock ([#246](https://github.com/mcaulifn/solcast/issues/246)) ([d7b254b](https://github.com/mcaulifn/solcast/commit/d7b254b6029de3aae98952fff998ab0c5e7bfb8c))
+
 ## [2.0.1](https://github.com/mcaulifn/solcast/compare/v2.0.0...v2.0.1) (2024-02-16)
 
 
