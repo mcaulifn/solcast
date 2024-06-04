@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.3](https://github.com/mcaulifn/solcast/compare/v2.0.2...v2.0.3) (2024-06-04)
+
+
+### Bug Fixes
+
+* **deps:** update dependency requests to v2.32.3 ([#256](https://github.com/mcaulifn/solcast/issues/256)) ([928bb07](https://github.com/mcaulifn/solcast/commit/928bb0749323f12482bc97d8d462f6af0ad921df))
+
 ## [2.0.2](https://github.com/mcaulifn/solcast/compare/v2.0.1...v2.0.2) (2024-04-19)
 
 
