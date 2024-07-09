@@ -38,4 +38,4 @@ max-line-length = 120
 [tool.poetry-dynamic-versioning]
 enable = true
 bump = true
-stype = "semver"
+stype = "pep440"
