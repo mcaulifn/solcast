@@ -9,7 +9,7 @@ on:
       - "!*"
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 4
@@ -38,24 +38,12 @@ jobs:
           flags: unittests
           name: pysolcast
           verbose: true
-
-  checks:
-    permissions:
-      checks: write
-      contents: read
-      pull-requests: write
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
-      - name: 'Dependency Review'
-        uses: actions/dependency-review-action@72eb03d02c7872a771aacd928f3123ac62ad6d3a # v4
-        with:
-          comment-summary-in-pr: always
-          fail-on-severity: moderate
-  deploy:
+  build:
     needs:
-      - build
       - checks
+      - test
+    outputs:
+      hashes: ${{ steps.hash.outputs.hashes }}
     permissions:
       id-token: write
     runs-on: ubuntu-latest
@@ -73,8 +61,60 @@ jobs:
           python -m pip install --upgrade pip
           pip install build
           python -m build
+      - name: "Generate hashes"
+        id: hash
+        run: |
+          cd dist && echo "hashes=$(sha256sum * | base64 -w0)" >> $GITHUB_OUTPUT
+      - name: "Upload dists"
+        uses: actions/upload-artifact@65462800fd760344b1a7b4382951275a0abb4808 # v4.3.3
+        with:
+          name: "dist"
+          path: "dist/"
+          if-no-files-found: error
+          retention-days: 5
+  checks:
+    permissions:
+      checks: write
+      contents: read
+      pull-requests: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+      - name: 'Dependency Review'
+        uses: actions/dependency-review-action@72eb03d02c7872a771aacd928f3123ac62ad6d3a # v4
+        with:
+          comment-summary-in-pr: always
+          fail-on-severity: moderate
+  provenance:
+    needs: 
+      - build
+    permissions:
+      actions: read
+      contents: write
+      id-token: write # Needed to access the workflow's OIDC identity.
+    uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v2.0.0
+    with:
+      base64-subjects: "${{ needs.build.outputs.hashes }}"
+      upload-assets: false
+
+  publish-to-test-pypi:
+    name: "Publish to Test PyPI"
+    needs:
+      - build
+      - provenance
+    permissions:
+      id-token: write # Needed for trusted publishing to PyPI.
+    runs-on: "ubuntu-latest"
+    environment:
+      name: "testpypi"
+    steps:
+      - name: "Download dists"
+        uses: actions/download-artifact@65a9edc5881444af0b9093a5e628f2fe47ea3b2e # v4.1.7
+        with:
+          name: "dist"
+          path: "dist/"
       - name: Publish distribution 📦 to Test PyPI
         uses: pypa/gh-action-pypi-publish@ec4db0b4ddc65acdf4bff5fa45ac92d78b56bdf0 # v1.9.0
         with:
           repository-url: https://test.pypi.org/legacy/
-          skip-existing: true
+  
