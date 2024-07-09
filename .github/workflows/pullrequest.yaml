@@ -42,6 +42,8 @@ jobs:
     needs:
       - checks
       - test
+    outputs:
+      hashes: ${{ steps.hash.outputs.hashes }}
     permissions:
       id-token: write
     runs-on: ubuntu-latest
