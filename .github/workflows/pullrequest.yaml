@@ -70,6 +70,8 @@ jobs:
           path: "dist/"
           if-no-files-found: error
           retention-days: 5
+      - name: Debug
+        run: echo $GITHUB_OUTPUT
   checks:
     permissions:
       checks: write
