@@ -10,6 +10,10 @@ on:
 
 jobs:
   test:
+    permissions:
+      contents: read
+      checks: write
+      pull-requests: write
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 4
@@ -46,6 +50,7 @@ jobs:
     outputs:
       hashes: ${{ steps.hash.outputs.hashes }}
     permissions:
+      contents: read
       id-token: write
     runs-on: ubuntu-latest
     steps:
