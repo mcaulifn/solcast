@@ -18,6 +18,7 @@ jobs:
           - 3.9
           - "3.10"
           - 3.11
+          - 3.12
     steps:
       - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
       - name: Set up Python ${{ matrix.python-version }}
@@ -80,13 +81,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
-      - name: 'Dependency Review'
+      - name: "Dependency Review"
         uses: actions/dependency-review-action@72eb03d02c7872a771aacd928f3123ac62ad6d3a # v4
         with:
           comment-summary-in-pr: always
           fail-on-severity: moderate
   provenance:
-    needs: 
+    needs:
       - build
     permissions:
       actions: read
@@ -117,4 +118,3 @@ jobs:
         uses: pypa/gh-action-pypi-publish@ec4db0b4ddc65acdf4bff5fa45ac92d78b56bdf0 # v1.9.0
         with:
           repository-url: https://test.pypi.org/legacy/
-  
