@@ -28,7 +28,7 @@ jobs:
           SOURCE_DATE_EPOCH=$(git log -1 --pretty=%ct) python -m build
       - name: Generate SBOM
         id: sbom
-        uses: anchore/syft-action@v0.16.1
+        uses: anchore/sbom-action@v0.16.1
       - name: "Generate hashes"
         id: hash
         run: |
