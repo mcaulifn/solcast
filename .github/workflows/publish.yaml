@@ -26,6 +26,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install build
           SOURCE_DATE_EPOCH=$(git log -1 --pretty=%ct) python -m build
+      - name: Generate SBOM
+        id: sbom
+        uses: anchore/sbom-action@v0.16.1
       - name: "Generate hashes"
         id: hash
         run: |
@@ -37,7 +40,7 @@ jobs:
           path: "dist/"
           if-no-files-found: error
           retention-days: 5
-  
+
   provenance:
     needs: [build]
     permissions:
@@ -48,7 +51,7 @@ jobs:
     with:
       base64-subjects: "${{ needs.build.outputs.hashes }}"
       upload-assets: true
-  
+
   publish-to-test-pypi:
     name: "Publish to Test PyPI"
     needs: ["build", "provenance"]

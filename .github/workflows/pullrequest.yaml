@@ -10,6 +10,10 @@ on:
 
 jobs:
   test:
+    permissions:
+      contents: read
+      checks: write
+      pull-requests: write
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 4
@@ -46,6 +50,7 @@ jobs:
     outputs:
       hashes: ${{ steps.hash.outputs.hashes }}
     permissions:
+      contents: read
       id-token: write
     runs-on: ubuntu-latest
     steps:
@@ -62,6 +67,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install build
           python -m build
+      - name: Generate SBOM
+        id: sbom
+        uses: anchore/sbom-action@v0.16.1
       - name: "Generate hashes"
         id: hash
         run: |
@@ -73,6 +81,7 @@ jobs:
           path: "dist/"
           if-no-files-found: error
           retention-days: 5
+
   checks:
     permissions:
       checks: write
