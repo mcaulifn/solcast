@@ -62,6 +62,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install build
           python -m build
+      - name: Generate SBOM
+        id: sbom
+        uses: anchore/syft-action@v0.16.1
       - name: "Generate hashes"
         id: hash
         run: |
@@ -73,6 +76,7 @@ jobs:
           path: "dist/"
           if-no-files-found: error
           retention-days: 5
+
   checks:
     permissions:
       checks: write
