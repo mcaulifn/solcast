@@ -4,5 +4,13 @@
         "config:best-practices",
         ":automergePr",
         ":automergeLinters"
-    ]
+    ],
+    "packageRules": [
+    {
+      "matchDepNames": [
+        "slsa-framework/slsa-github-generator"
+      ],
+      "pinDigests": false
+    }
+  ]
 }
