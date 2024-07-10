@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.4](https://github.com/mcaulifn/solcast/compare/v2.0.3...v2.0.4) (2024-07-10)
+
+
+### Bug Fixes
+
+* **deps:** Bump urllib3 from 2.2.1 to 2.2.2 ([#274](https://github.com/mcaulifn/solcast/issues/274)) ([bd35123](https://github.com/mcaulifn/solcast/commit/bd35123b73f5794719bc429f91f2a28202614106))
+
 ## [2.0.3](https://github.com/mcaulifn/solcast/compare/v2.0.2...v2.0.3) (2024-06-04)
 
 
