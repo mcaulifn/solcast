@@ -40,4 +40,4 @@ enable = true
 bump = true
 metadata = false
 stype = "pep440"
-format-jinja = "{% if distance == 0 %}{{ base }}{% else %}{{ base }}+{{ distance }}.{{ commit }}{% endif %}"
+format-jinja = "v{% if distance == 0 %}{{ base }}{% else %}{{ base }}.{{ stage }}.{{ commit }}{% endif %}"
