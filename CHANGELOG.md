@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.5](https://github.com/mcaulifn/solcast/compare/v2.0.4...v2.0.5) (2024-07-16)
+
+
+### Bug Fixes
+
+* **deps-dev:** Bump setuptools from 69.5.1 to 70.0.0 ([#291](https://github.com/mcaulifn/solcast/issues/291)) ([64c0f99](https://github.com/mcaulifn/solcast/commit/64c0f99e757e4b42ce2262ed2529dd8902522c1f))
+
 ## [2.0.4](https://github.com/mcaulifn/solcast/compare/v2.0.3...v2.0.4) (2024-07-10)
 
 
