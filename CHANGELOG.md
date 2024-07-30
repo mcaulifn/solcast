@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.6](https://github.com/mcaulifn/solcast/compare/v2.0.5...v2.0.6) (2024-07-30)
+
+
+### Bug Fixes
+
+* **deps:** Bump certifi from 2024.2.2 to 2024.7.4 ([#299](https://github.com/mcaulifn/solcast/issues/299)) ([00f6715](https://github.com/mcaulifn/solcast/commit/00f6715ad558bbc03842a35c480d8a833e9b62fc))
+
 ## [2.0.5](https://github.com/mcaulifn/solcast/compare/v2.0.4...v2.0.5) (2024-07-16)
 
 
