@@ -69,7 +69,7 @@ jobs:
           python -m build
       - name: Generate SBOM
         id: sbom
-        uses: anchore/sbom-action@61119d458adab75f756bc0b9e4bde25725f86a7a # v0.17.2
+        uses: anchore/sbom-action@9f7302141466aa6482940f15371237e9d9f4c34a # v0.19.0
       - name: "Generate hashes"
         id: hash
         run: |
