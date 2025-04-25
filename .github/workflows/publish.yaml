@@ -67,7 +67,7 @@ jobs:
           name: "dist"
           path: "dist/"
       - name: Publish distribution 📦 to Test PyPI
-        uses: pypa/gh-action-pypi-publish@8a08d616893759ef8e1aa1f2785787c0b97e20d6 # v1.10.0
+        uses: pypa/gh-action-pypi-publish@76f52bc884231f62b9a034ebfe128415bbaabdfc # v1.12.4
         with:
           repository-url: https://test.pypi.org/legacy/
   publish-to-pypi-and-github:
@@ -94,4 +94,4 @@ jobs:
         run: |
           gh release upload ${{ github.ref_name }} dist/* --repo ${{ github.repository }}
       - name: Publish distribution 📦 to PyPI
-        uses: pypa/gh-action-pypi-publish@8a08d616893759ef8e1aa1f2785787c0b97e20d6 # v1.10.0
+        uses: pypa/gh-action-pypi-publish@76f52bc884231f62b9a034ebfe128415bbaabdfc # v1.12.4
