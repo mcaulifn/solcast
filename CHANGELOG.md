@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.0.7](https://github.com/mcaulifn/solcast/compare/v2.0.6...v2.0.7) (2025-04-25)
+
+
+### Bug Fixes
+
+* **deps-dev:** Bump jinja2 from 3.1.4 to 3.1.6 ([#341](https://github.com/mcaulifn/solcast/issues/341)) ([10d1e15](https://github.com/mcaulifn/solcast/commit/10d1e1565b6c6dd904f23b6ea35ccf2ffffc06b9))
+* **deps:** update dependency isodate to v0.7.2 ([#330](https://github.com/mcaulifn/solcast/issues/330)) ([efd76cd](https://github.com/mcaulifn/solcast/commit/efd76cdf05296fa82a4e53dc5c8ee885f1fa519a))
+
 ## [2.0.6](https://github.com/mcaulifn/solcast/compare/v2.0.5...v2.0.6) (2024-07-30)
 
 
