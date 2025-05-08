@@ -24,7 +24,7 @@ pycodestyle = "2.13.0"
 mock = "5.2.0"
 pylint = "3.3.7"
 setuptools-scm = "8.3.1"
-Sphinx = "7.4.7"
+Sphinx = "8.2.3"
 responses = "0.25.7"
 
 
