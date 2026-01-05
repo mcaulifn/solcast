@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.8](https://github.com/mcaulifn/solcast/compare/v2.0.7...v2.0.8) (2026-01-05)
+
+
+### Bug Fixes
+
+* **deps:** update dependency requests to v2.32.4 [security] ([#352](https://github.com/mcaulifn/solcast/issues/352)) ([23b80ae](https://github.com/mcaulifn/solcast/commit/23b80ae762e3f58ba1756499ea035a8dd39c9a9f))
+
 ## [2.0.7](https://github.com/mcaulifn/solcast/compare/v2.0.6...v2.0.7) (2025-04-25)
 
 
