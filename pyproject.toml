@@ -14,7 +14,7 @@ requests = "^2.31.0"
 [tool.poetry.group.dev.dependencies]
 bump2version = "1.0.1"
 tox = "4.25.0"
-pytest = "8.4.2"
+pytest = "9.0.2"
 pytest-cov = "6.3.0"
 sphinx-autodoc-typehints = "2.3.0"
 autopep8 = "2.3.2"
