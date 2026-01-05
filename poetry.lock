@@ -939,27 +939,24 @@ testing = ["build[virtualenv] (>=1.0.3)", "filelock (>=3.4.0)", "importlib-metad
 
 [[package]]
 name = "setuptools-scm"
-version = "8.3.1"
+version = "9.2.2"
 description = "the blessed package to manage your versions by scm tags"
 optional = false
 python-versions = ">=3.8"
 groups = ["dev"]
 files = [
-    {file = "setuptools_scm-8.3.1-py3-none-any.whl", hash = "sha256:332ca0d43791b818b841213e76b1971b7711a960761c5bea5fc5cdb5196fbce3"},
-    {file = "setuptools_scm-8.3.1.tar.gz", hash = "sha256:3d555e92b75dacd037d32bafdf94f97af51ea29ae8c7b234cf94b7a5bd242a63"},
+    {file = "setuptools_scm-9.2.2-py3-none-any.whl", hash = "sha256:30e8f84d2ab1ba7cb0e653429b179395d0c33775d54807fc5f1dd6671801aef7"},
+    {file = "setuptools_scm-9.2.2.tar.gz", hash = "sha256:1c674ab4665686a0887d7e24c03ab25f24201c213e82ea689d2f3e169ef7ef57"},
 ]
 
 [package.dependencies]
-importlib-metadata = {version = ">=4.6", markers = "python_version < \"3.10\""}
 packaging = ">=20"
 setuptools = "*"
 tomli = {version = ">=1", markers = "python_version < \"3.11\""}
 typing-extensions = {version = "*", markers = "python_version < \"3.10\""}
 
 [package.extras]
-docs = ["entangled-cli (>=2.0,<3.0)", "mkdocs", "mkdocs-entangled-plugin", "mkdocs-include-markdown-plugin", "mkdocs-material", "mkdocstrings[python]", "pygments"]
 rich = ["rich"]
-test = ["build", "pytest", "rich", "typing-extensions ; python_version < \"3.11\"", "wheel"]
 
 [[package]]
 name = "snowballstemmer"
@@ -1285,4 +1282,4 @@ test = ["big-O", "jaraco.functools", "jaraco.itertools", "jaraco.test", "more-it
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.9"
-content-hash = "671b86ef4398d24703c4dd1aaeedff2931a76bb509d232952dd20ee0abeb3735"
+content-hash = "f47bc6c66505f98988240d2676cbbd9c8ce99972bcac1271100fc045568ad392"
