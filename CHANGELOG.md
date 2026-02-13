@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.0.8](https://github.com/mcaulifn/solcast/compare/v2.0.7...v2.0.8) (2026-02-13)
+
+
+### Bug Fixes
+
+* **deps:** update dependency requests to v2.32.4 [security] ([#352](https://github.com/mcaulifn/solcast/issues/352)) ([23b80ae](https://github.com/mcaulifn/solcast/commit/23b80ae762e3f58ba1756499ea035a8dd39c9a9f))
+
+
+### Documentation
+
+* map existing codebase ([9a539a4](https://github.com/mcaulifn/solcast/commit/9a539a48c2401cc79fd689708e9d19763e7c4fc6))
+* mark project as deprecated, link to official Solcast SDK ([136de0a](https://github.com/mcaulifn/solcast/commit/136de0a2ecaf1917d07a603024950a45540e0903))
+
 ## [2.0.7](https://github.com/mcaulifn/solcast/compare/v2.0.6...v2.0.7) (2025-04-25)
 
 
