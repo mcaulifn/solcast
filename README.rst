@@ -2,6 +2,8 @@
 pysolcast
 =========
 
+⚠️ **DEPRECATED** — Solcast now maintains an official Python SDK. Please use `solcast-api-python-sdk <https://github.com/Solcast/solcast-api-python-sdk>`_ instead.
+
 | |Build Status| |CodeCov| |pypi| |codeclimate|
 
 
